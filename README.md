@@ -14,6 +14,10 @@ Se vocês chegaram até aqui, é fato que vocês conhecem os conceitos básicos 
 
 ### Unidade I
 
-[1 - Introdução a Estruturas de Dados](conteudos/Introducao.md)
+1. [Introdução a Estruturas de Dados](conteudos/Introducao.md)
+
+2. [Listas](conteudos/Listas.md)
+    
+    2.1. [ArrayLists](conteudos/ArrayLists.md)
 
 ## Avaliação
