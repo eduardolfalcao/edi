@@ -23,7 +23,7 @@ Uma discussão comum é a escolha dessa capacidade. Por um lado, se escolhermos 
 
 ### Inserção no fim da lista
 
-A peculiaridade da inserção é que arrays instanciados não mudam de tamanho. Portanto, sempre que o array estiver totalmente preenchido, uma nova inserção irá requerer a criação de um novo array com maior capacidade, ou uma realocação que aumente a capacidade do array. Obviamente isto requer que os elementos previamente inseridos no array original sejam copiados para este novo array.
+A peculiaridade da inserção é que arrays instanciados não mudam de tamanho naturalmente. Portanto, sempre que o array estiver totalmente preenchido, uma nova inserção irá requerer a criação de um novo array com maior capacidade, ou uma realocação que aumente a capacidade do array. Obviamente isto requer que os elementos previamente inseridos no array original sejam copiados para este novo array.
 
 A seguir é apresentada uma animação que ilustra um ArrayList sendo inicializado e populado até além de sua capacidade, o que força a alocação de um novo array. Em seguida são apresentadas as implementações das funções *duplicarCapacidade* e *inserirElementoNoFim*.
 
@@ -88,7 +88,7 @@ Lembre-se que na interface *inserirElemento(int valor, int posicao)*, posição 
 
 A seguir é apresentada uma animação que ilustra um ArrayList sendo preenchido, e no final acontece uma inserção na posição 0. Depois é apresentado o código-fonte da função *inserirElementoEmPosicao*.
 
-![alt text](imgs/listas/arraylist/arraylist-insercao-fim.gif)
+![alt text](imgs/listas/arraylist/arraylist-insercao-posicao.gif)
 
 ```c
 void inserirElementoEmPosicao(int valor, int posicao){
@@ -159,9 +159,17 @@ void removerElementoEmPosicao(int posicao){
 
 ## Noções de Desempenho
 
-É muito importante estudar os algoritmos e EDs sob a perspectiva de seus desempenhos. Embora neste ponto do curso nós ainda não aprendemos sobre **análise assintótica de algoritmos**, que é o assunto que trata dos formalismos matemáticos para analisar o desempenho de algoritmos, nós podemos fomentar uma discussão que nos permita ter noções de por quê um algoritmo desempenha bem ou mal.
+É muito importante estudar os algoritmos e EDs sob a perspectiva de seus desempenhos. Embora neste ponto do curso nós ainda não aprendemos sobre **análise assintótica de algoritmos**, que é o assunto que trata dos formalismos matemáticos para analisar o desempenho de algoritmos, nós podemos fomentar uma discussão que nos permita ter noções de por quê as *funções de inserção, remoção, obtenção e atualização* desempenham bem ou mal.
 
-Aqui vamos classisficar o desempenho em **instantâneo** sempre que não precisarmos percorrer o array, e **proporcional ao tamanho do array** sempre que a função necessitar escanear todo o array (pelo menos na situação mais extrema, que chamamos de pior caso).
+### Arrays são alocados em blocos contíguos de RAM!
+
+Antes de analisar as funções é preciso destacar a principal propriedade de um array: em sua criação, blocos contíguos de RAM são alocados para ele. A grande vantagem disto é que se tivermos um array de int com 10^6 posições, então é possível acessar o último elemento do array, i.e., o elemento da posição (10^6)-1, de forma instantânea, sem precisar escanear todo o array.
+
+Note que em nossas animações dos algoritmos eu escolhi aleatoriamente que o array estava sempre sendo instanciado no endereço 8239. Como o array é de inteiros, e sabemos que cada int ocupa 4 bytes, então sabemos que podemos obter o elemento da posição (10^6)-1 da seguinte forma: **8239 + posição * 4, que neste caso seria 8239 + (10^6-1) * 4**. Obviamente esta lógica funciona para arrays de quaisquer tamanhos.
+
+### Análise de desempenho das funções
+
+Aqui vamos classisficar o desempenho em **instantâneo** sempre que não precisarmos percorrer o array para executar uma função, e **proporcional ao tamanho do array** sempre que a função necessitar escanear todo o array (pelo menos na situação mais extrema, que chamamos de pior caso).
 
 - **inserirElementoNoFim:** depende da necessidade ou não de duplicação do array; quando não for necessário duplicar o array, o desempenho será **instantâneo**
 - **duplicarCapacidade (novo array):** desempenho será **proporcional ao tamanho do array** dado que sera preciso iterar no array antigo para copiar os elementos para o novo array

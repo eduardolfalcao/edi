@@ -1,11 +1,15 @@
 # Listas
 
  Usamos listas com muita frequência no cotidiando, e por esta razão, é intrínseco a todos nós o conceito de listas. É muito comum fazermos uma lista de feira, lista de convidados, lista de presentes, lista de alunos, lista de ingredientes, etc.
+
+ Lista de feira             |  Lista de convidados
+:-------------------------:|:-------------------------:
+![](imgs/listas/lista-de-feira.jpg)  |  ![](imgs/listas/lista-de-convidados.png)
  
  **Definição:**
  > Listas são coleções de elementos/objetos de um mesmo tipo.
  
- Para o nosso estudo, vamos iniciar com uma visão abstrata e superficial da ED lista. Vamos estudar listas sob a perspectiva de Tipos Abstratos de Dados (TADs), logo, neste primeiro momento não nos preocuparemos com implementação, mas queremos apenas lista e ter um entendimento superficial de suas operações básicas.
+ Para o nosso estudo, vamos iniciar com uma visão abstrata e superficial da ED lista. Vamos estudar listas sob a perspectiva de Tipos Abstratos de Dados (TADs), logo, neste primeiro momento não nos preocuparemos com implementação, mas queremos apenas ter um entendimento superficial de suas operações básicas.
 
  ## TAD: Listas
 
