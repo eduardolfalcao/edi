@@ -2,6 +2,10 @@
 
 **Definição:**
 > ArrayLists são listas implementadas com arrays (por "debaixo do panos").
+
+Segue ilustração de um array list contendo valores numéricos pares.
+
+![alt text](imgs/listas/arraylist/arraylist-apresentacao.png)
  
 Usar array como ED para implementar listas tem algumas consequências positivas e outras consequências negativas. Essas consequências decorrem do fato de algumas operações conseguirem ser executadas de forma extremamente rápida e outras operações serem executadas de forma lenta. 
 
