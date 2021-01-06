@@ -20,4 +20,6 @@ Se vocês chegaram até aqui, é fato que vocês conhecem os conceitos básicos 
     
     2.1. [ArrayLists](conteudos/ArrayLists.md)
 
+    2.2 [LinkedLists](conteudos/LinkedLists.md)
+
 ## Avaliação
