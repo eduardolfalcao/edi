@@ -49,6 +49,23 @@ void inserirElementoEmPosicao(int valor, int posicao){
     }
 }
 
+/*void inserirElementoEmPosicao(int elemento, int pos){
+    if(pos>=0 && pos<=tamanho){         //o índice é válido
+        if(sizeof(lista) == tamanho){   //se capacidade do array for excedida
+            duplicarCapacidade();       //duplique a capacidade
+        }
+        //[2,4,6,8,10]
+        //insercao de 0 na posicao 0
+        //[2,2,4,6,8,10,X,X,X,X]
+        //i=0
+        for(int i = tamanho; i >= pos ; i--){
+            lista[i+1] = lista[i];
+        }
+        lista[pos] = elemento;
+        tamanho++;
+    }
+}*/
+
 void atualizarElemento(int valor, int posicao){
     if(posicao >= 0 && posicao < tamanho){    
         lista[posicao] = valor;
@@ -122,6 +139,7 @@ void exibirLista(){
     inserirElementoNoFim(6);
     inserirElementoNoFim(2);
     inserirElementoNoFim(-2);
+    //[4,3,5,6,2,-2]
     inserirElementoEmPosicao(4,0);
     exibirLista();
    return 0;
@@ -134,6 +152,7 @@ int main() {
     inserirElementoNoFim(6);
     inserirElementoNoFim(2);
     inserirElementoNoFim(-2);
+    //[3,5,6,2,-2] ==> [5,6,2,-2]
     removerElementoEmPosicao(0);
     exibirLista();
    return 0;

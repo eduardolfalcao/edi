@@ -9,9 +9,10 @@ A seguir representamos a memória RAM através de uma visão lógica. Note como 
 Imagine que vamos escrever uma simples aplicação na linguagem C para alocar duas variáveis inteiras e um array para armazenar quatro inteiros. Como um int precisa de 4 bytes para ser armazenado, neste caso precisaríamos de 32 bytes, 8 para os inteiros, e 16 para o array. Os inteiros podem ser armazenados em qualquer posição da memória, mas os **arrays são sempre armazenados em blocos contíguos de memória**, e isto traz algumas implicações.
 
 Observe a animação a seguir:
+
 ![alt text](imgs/listas/linkedlist/linkedlist-gerenciamento-memoria.gif)
 
-Faz sentido que o Gerenciador de Memória busque minimizar a fragmentação, i.e., diminuir a quantidade de espaços de memória pequenos desalocados (ou de forma coloquial, diminuir a quantidade de "buracos"). Neste caso, o Gerenciador de Memória primeiro tentaria alocar o array *c* entre *b* e *a*, mas isto não seria possível pois *c* precisa de 16 bits, mas há apenas 15 bits disponíveis entre *a* e *b*.
+Faz sentido que o Gerenciador de Memória busque minimizar a fragmentação, i.e., diminuir a quantidade de espaços de memória pequenos desalocados (ou de forma coloquial, diminuir a quantidade de "buracos"). Neste caso, o Gerenciador de Memória primeiro tentaria alocar o array *c* entre *b* e *a*, mas isto não seria possível pois *c* precisa de 16 bytes, mas há apenas 15 bytes disponíveis entre *a* e *b*.
 
 Quando falamos de ArrayLists, sabemos que as listas são implementadas com arrays. Nesse caso, geralmente aloca-se uma quantidade específica de espaço para este array, e tenta-se expandir a medida que seja necessário. Um problema de ArrayLists é que ocasionalmente eles podem ter memória ociosa. Para evitar este desperdício de memória podemos usar um outro tipo de ED: a **LinkedList**.
 
@@ -49,14 +50,14 @@ struct no{
 
 **Observação:** a partir de agora vamos colocar todas as nossas implementações de EDs em bibliotecas, ou seja, arquivos de extensão *.h*. Além disso, para fins de testes, vocês devem seguir exatamente as mesmas assinaturas de métodos que eu usar, pois assim eu conseguirei automatizar as correções.
 
-Ao contrário de ArrayLists, em que precisamos inicializar um array, LinkedList podem inicializar completamente nulas, pois sempre que adicionarmos um novo nó utilizaremos a função *malloc* para alocarmos espaço na RAM para o novo nó. No entanto, precisamos pelo menos inicializar as variáveis que representará a nossa lista:
+Ao contrário de ArrayLists, em que precisamos inicializar um array, LinkedLists podem inicializar completamente nulas, pois sempre que adicionarmos um novo nó utilizaremos a função *malloc* para alocarmos espaço na RAM para o novo nó. No entanto, precisamos pelo menos inicializar as variáveis que representará a nossa lista:
 
 ```c
 int tamanho;
 struct no * lista;
 ```
 
-Na minha implementação eu estou usando a variável int tamanho pois sempre que eu adicionar um novo nó eu incrementarei esta variável. Isto evita a lenta contagem de elementos quando alguém precisar saber quanto elementos possui aquela lista.
+Na minha implementação eu estou usando a variável int tamanho pois sempre que eu adicionar um novo nó eu incrementarei esta variável. Isto evita a lenta contagem de elementos quando alguém precisar saber quantos elementos possui aquela lista.
 
 ### Imprimir Lista
 
@@ -86,7 +87,7 @@ void imprimirLista(struct no **cabeca){
 ### Inserir Elemento no Fim da Lista
 
 Temos dois casos principais:
-1. ** A lista está vazia.** Nesse caso, basta apontar a cabeça da lista para o nó recém-criado.
+1. **A lista está vazia.** Nesse caso, basta apontar a cabeça da lista para o nó recém-criado.
 2. **A lista não está vazia.** Nesse caso, precisamos percorrer até o último elemento da lista e atualizar o valor de *prox* desse último nó para o nó recém-criado.
 
 Em ambos os casos sempre precisaremos usar a função malloc para alocar espaço para o novo nó. Além disso, sempre incrementaremos a variável tamanho.
@@ -103,11 +104,37 @@ Alguns detalhes não estão representados nesta animação. Por exemplo, vamos p
 
 ### Inserir Elemento no Início da Lista
 
+Mais uma vez, temos dois casos principais:
+1. **A lista está vazia.** Nesse caso, basta apontar a cabeça da lista para o nó recém-criado.
+2. **A lista não está vazia.** Nesse caso, basta apontar o ponteiro *prox* do nó recém-criado para o endereço que a cabeça da lista aponta, pois o novo nó precisa apontar para a antiga cabeça da lista. Por fim, apontamos a cabeça da lista para o nó recém-criado.
+
+Em ambos os casos sempre precisaremos usar a função malloc para alocar espaço para o novo nó. Além disso, sempre incrementaremos a variável tamanho.
+
+Segue assinatura da função para vocês implementarem:
+```c
+void inserirElementoNoInicio(struct no **cabeca, int valor, int* tamanho)
+```
+
 ### Inserir Elemento em Posição Específica da Lista
+
+Segue assinatura da função para vocês implementarem:
+```c
+void inserirElementoEmPosicao(struct no **cabeca, int valor, int posicao, int* tamanho){
+```
 
 ### Obter Elemento em Posição Específica da Lista
 
+Segue assinatura da função para vocês implementarem:
+```c
+int obterElementoEmPosicao(struct no **cabeca, int posicao)
+```
+
 ### Remover Elemento em Posição Específica da Lista
+
+Segue assinatura da função para vocês implementarem:
+```c
+void removerElementoEmPosicao(struct no **cabeca, int posicao, int* tamanho){
+```
 
 ## Noções de Desempenho
 
