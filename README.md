@@ -22,4 +22,8 @@ Se vocês chegaram até aqui, é fato que vocês conhecem os conceitos básicos 
 
     2.2. [LinkedLists](conteudos/LinkedLists.md)
 
+3. [Pilhas](conteudos/Pilhas.md)
+
+4. [Filas](conteudos/Filas.md)
+
 ## Avaliação
