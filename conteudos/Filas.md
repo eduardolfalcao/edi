@@ -47,7 +47,3 @@ Observações:
      - Posição posição frontal: frente = (frente+n-1)%n
      - Fila está vazia quando: tras == -1 && frente == -1
      - Fila está cheia quando: (tras+1)%n == frente
-
-## Implementação: Pilhas usando LinkedLists
-
-Como pilhas são listas com restrições, é possível perceber que nós podemos reaproveitar o código de LinkedList e modificá-lo para que ele incorpore as restrições de listas.
