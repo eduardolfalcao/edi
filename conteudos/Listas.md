@@ -7,7 +7,7 @@
 ![](imgs/listas/lista-de-feira.jpg)  |  ![](imgs/listas/lista-de-convidados.png)
  
  **Definição:**
- > Listas são coleções de elementos/objetos de um mesmo tipo.
+ > Listas são coleções de elementos de um mesmo tipo.
  
  Para o nosso estudo, vamos iniciar com uma visão abstrata e superficial da ED lista. Vamos estudar listas sob a perspectiva de Tipos Abstratos de Dados (TADs), logo, neste primeiro momento não nos preocuparemos com implementação, mas queremos apenas ter um entendimento superficial de suas operações básicas.
 
