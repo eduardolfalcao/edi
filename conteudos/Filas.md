@@ -43,7 +43,7 @@ Como filas são listas com restrições, é possível perceber que nós podemos 
 Observações:
  - Na nossa primeira implementação de filas com arrays, quando a fila estiver cheia, não duplicaremos o tamanho do array.
  - Se a frente ou traseira da fila tangenciar a extremidade esquerda ou direita do array, respectivamente, utilizaremos o conceito de array circular para preencher todos os espaços do array.
-     - Próxima posição traseira: tras = (tras+1)%n
-     - Posição posição frontal: frente = (frente+n-1)%n
+     - Próxima posição traseira (enfileirar): tras = (tras+1)%n
+     - Posição posição frontal (desenfileirar): frente = (frente+1)%n
      - Fila está vazia quando: tras == -1 && frente == -1
      - Fila está cheia quando: (tras+1)%n == frente
