@@ -94,32 +94,6 @@ Agora vamos implementar a função **MergeSort**, encarregade de dividir o vetor
 
 ```c
 void mergeSort(int* v, int tamV){
-    if(tamV > 1){
-        int meio = tamV/2;
-        
-        int tamE = meio;
-        int* e = (int*) malloc(tamE*sizeof(int));
-        for(int i = 0; i < tamE; i++){
-            e[i] = v[i];
-        }
-
-        int tamD = tamV - tamE;
-        int* d = (int*) malloc(tamD*sizeof(int));
-        for(int i = meio; i < tamV; i++){
-            d[i-meio] = v[i];
-        }
-
-        mergeSort(e,tamE);
-        mergeSort(d,tamD);
-        merge(v,tamV,e,tamE,d,tamD);
-    }
-}
-```
-
-
-
-```c
-void mergeSort(int* v, int tamV){
     if(tamV>1){
         //primeiro quebramos o vetor em 2 vetores menores
         int meio = tamV/2;
