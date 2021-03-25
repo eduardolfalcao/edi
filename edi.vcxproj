@@ -102,8 +102,10 @@
     <ClCompile Include="src\listas\arraylist.c" />
     <ClCompile Include="src\listas\linkedlist.c" />
     <ClCompile Include="src\pilhas\arraystack.c" />
-    <ClCompile Include="src\pilhas\linkedliststackmain.c" />-->
+    <ClCompile Include="src\pilhas\linkedliststackmain.c" />
 	<ClCompile Include="src\pilhas\duvida-cauan.c" />
+	<ClCompile Include="src\balParentese.cpp" />-->
+	<ClCompile Include="src\busca\busca.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="packages\microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.3\build\native\include\gtest\gtest-death-test.h" />

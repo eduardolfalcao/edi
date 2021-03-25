@@ -26,4 +26,16 @@ Se vocês chegaram até aqui, é fato que vocês conhecem os conceitos básicos 
 
 4. [Filas](conteudos/Filas.md)
 
+5. [Algoritmos de Busca](conteudos/Busca.md)
+
+6. [Algoritmos de Ordenação](conteudos/Ordenacao.md)
+
+    6.1. [SelectionSort](conteudos/ordenacao/SelectionSort.md)
+
+    6.2. [BubbleSort](conteudos/ordenacao/BubbleSort.md)
+
+    6.3. [InsertionSort](conteudos/ordenacao/InsertionSort.md)
+
+    6.4. [MergeSort](conteudos/ordenacao/MergeSort.md)
+    
 ## Avaliação
