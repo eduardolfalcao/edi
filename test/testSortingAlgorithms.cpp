@@ -15,7 +15,8 @@ protected:
 	}
 
 	int* v;
-	int tamanho = 100;
+	int tamanho = 10000;
+	int nTestes = 1;
 };
 
 void selectionSortTestInstance(int* v, int tamanho, bool inPlace) {
@@ -32,8 +33,7 @@ void selectionSortTestInstance(int* v, int tamanho, bool inPlace) {
 	}
 }
 
-TEST_F(SortingAlgorithmsTest, SelectionSortOP) {
-	int nTestes = 1000;
+TEST_F(SortingAlgorithmsTest, SelectionSortOP) {	
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		selectionSortTestInstance(v, tamanho, false);
@@ -43,7 +43,6 @@ TEST_F(SortingAlgorithmsTest, SelectionSortOP) {
 }
 
 TEST_F(SortingAlgorithmsTest, SelectionSortIP) {
-	int nTestes = 1000;
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		selectionSortTestInstance(v, tamanho, true);
@@ -53,7 +52,6 @@ TEST_F(SortingAlgorithmsTest, SelectionSortIP) {
 }
 
 TEST_F(SortingAlgorithmsTest, BubbleSort) {
-	int nTestes = 1000;
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		bubbleSort(v, tamanho);
@@ -66,7 +64,6 @@ TEST_F(SortingAlgorithmsTest, BubbleSort) {
 }
 
 TEST_F(SortingAlgorithmsTest, InsertionSortOP) {
-	int nTestes = 1000;
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		insertionSortOP(&v, tamanho);	
@@ -79,7 +76,6 @@ TEST_F(SortingAlgorithmsTest, InsertionSortOP) {
 }
 
 TEST_F(SortingAlgorithmsTest, InsertionSortIPV1) {
-	int nTestes = 1000;
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		insertionSortIPV1(v, tamanho);
@@ -92,7 +88,6 @@ TEST_F(SortingAlgorithmsTest, InsertionSortIPV1) {
 }
 
 TEST_F(SortingAlgorithmsTest, InsertionSortIPV2) {
-	int nTestes = 1000;
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		insertionSortIPV2(v, tamanho);
@@ -105,7 +100,6 @@ TEST_F(SortingAlgorithmsTest, InsertionSortIPV2) {
 }
 
 TEST_F(SortingAlgorithmsTest, InsertionSortIPV3) {
-	int nTestes = 1000;
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		insertionSortIPV3(v, tamanho);
@@ -118,7 +112,6 @@ TEST_F(SortingAlgorithmsTest, InsertionSortIPV3) {
 }
 
 TEST_F(SortingAlgorithmsTest, InsertionSortIPV4) {
-	int nTestes = 1000;
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		insertionSortIPV4(v, tamanho);
@@ -131,7 +124,6 @@ TEST_F(SortingAlgorithmsTest, InsertionSortIPV4) {
 }
 
 TEST_F(SortingAlgorithmsTest, InsertionSortIPV5) {
-	int nTestes = 1000;
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		insertionSortIPV5(v, tamanho);
@@ -144,10 +136,21 @@ TEST_F(SortingAlgorithmsTest, InsertionSortIPV5) {
 }
 
 TEST_F(SortingAlgorithmsTest, MergeSort) {
-	int nTestes = 1000;
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		mergeSort(v, tamanho);
+		for (int i = 0; i < tamanho - 1; i++) {
+			EXPECT_TRUE(v[i] <= v[i + 1]);
+		}
+		if (i != nTestes - 1)	//evita executar free 2x no ultimo teste
+			TearDown();
+	}
+}
+
+TEST_F(SortingAlgorithmsTest, QuickSort) {
+	for (int i = 0; i < nTestes; i++) {
+		SetUp();
+		quickSort(v, 0, tamanho-1);
 		for (int i = 0; i < tamanho - 1; i++) {
 			EXPECT_TRUE(v[i] <= v[i + 1]);
 		}

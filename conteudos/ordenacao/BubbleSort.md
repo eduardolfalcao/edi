@@ -90,7 +90,7 @@ void bubbleSort(int* v, int n){
 }
 ```
 
-Aprimoramento 3: se na primeira varredura nã houve nenhuma troca, então o array está ordenado, e podemos terminar o procedimento sem precisar fazer novas varreduras.
+Aprimoramento 3: se na primeira varredura não houve nenhuma troca, então o array está ordenado, e podemos terminar o procedimento sem precisar fazer novas varreduras.
 
 ```c
 void bubbleSort(int* v, int n){    

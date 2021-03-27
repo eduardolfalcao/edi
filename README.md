@@ -37,5 +37,7 @@ Se vocês chegaram até aqui, é fato que vocês conhecem os conceitos básicos 
     6.3. [InsertionSort](conteudos/ordenacao/InsertionSort.md)
 
     6.4. [MergeSort](conteudos/ordenacao/MergeSort.md)
+
+    6.5. [QuickSort](conteudos/ordenacao/QuickSort.md)
     
 ## Avaliação
