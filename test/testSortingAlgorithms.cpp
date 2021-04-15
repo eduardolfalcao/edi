@@ -15,7 +15,7 @@ protected:
 	}
 
 	int* v;
-	int tamanho = 10000;
+	int tamanho = 10;
 	int nTestes = 1;
 };
 
@@ -33,7 +33,7 @@ void selectionSortTestInstance(int* v, int tamanho, bool inPlace) {
 	}
 }
 
-TEST_F(SortingAlgorithmsTest, SelectionSortOP) {	
+/*TEST_F(SortingAlgorithmsTest, SelectionSortOP) {	
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		selectionSortTestInstance(v, tamanho, false);
@@ -133,7 +133,7 @@ TEST_F(SortingAlgorithmsTest, InsertionSortIPV5) {
 		if (i != nTestes - 1)	//evita executar free 2x no ultimo teste
 			TearDown();
 	}
-}
+}*/
 
 TEST_F(SortingAlgorithmsTest, MergeSort) {
 	for (int i = 0; i < nTestes; i++) {
@@ -151,6 +151,18 @@ TEST_F(SortingAlgorithmsTest, QuickSort) {
 	for (int i = 0; i < nTestes; i++) {
 		SetUp();
 		quickSort(v, 0, tamanho-1);
+		for (int i = 0; i < tamanho - 1; i++) {
+			EXPECT_TRUE(v[i] <= v[i + 1]);
+		}
+		if (i != nTestes - 1)	//evita executar free 2x no ultimo teste
+			TearDown();
+	}
+}
+
+TEST_F(SortingAlgorithmsTest, CountingSort) {
+	for (int i = 0; i < nTestes; i++) {
+		SetUp();
+		countingSort(&v, tamanho);
 		for (int i = 0; i < tamanho - 1; i++) {
 			EXPECT_TRUE(v[i] <= v[i + 1]);
 		}

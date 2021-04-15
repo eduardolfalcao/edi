@@ -84,5 +84,4 @@ Categorizamos o QuickSort como:
         - O(nlogn): melhor caso e caso médio
             - a altura da recursão até chegar no caso base log(n)
             - em cada nível executamos o **particiona** em estruturas menores, que somados custam O(n)
-        - O(n²): pior caso (pode ser evitado randomizando a escolha do pivô)
-        
+        - O(n²): pior caso (pode ser evitado randomizando a escolha do pivô)        

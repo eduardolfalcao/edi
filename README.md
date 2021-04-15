@@ -39,5 +39,7 @@ Se vocês chegaram até aqui, é fato que vocês conhecem os conceitos básicos 
     6.4. [MergeSort](conteudos/ordenacao/MergeSort.md)
 
     6.5. [QuickSort](conteudos/ordenacao/QuickSort.md)
+
+7. [Árvores](conteudos/Arvores.md)
     
 ## Avaliação
