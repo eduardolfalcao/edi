@@ -1,7 +1,6 @@
-#include "pch.h"
-#include "../src/listas/bibliotecas/linkedlist.h"
+#include <gtest/gtest.h>
+#include "../src/listas/linkedlist.h"
 #include <math.h>
-
 
 class LinkedListTest : public ::testing::Test {
 protected:
@@ -129,4 +128,9 @@ TEST_F(LinkedListTest, RemocaoMeio) {
 		removerElementoEmPosicao(&lista, ceil(tamanho / 2), &tamanho);
 	}
 	EXPECT_EQ(tamanho, 0);
+}
+
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
