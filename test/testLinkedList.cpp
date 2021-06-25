@@ -19,7 +19,7 @@ protected:
 	struct no* lista = NULL;
 };
 
-TEST_F(LinkedListTest, InsercaoListaVaziaFim) {
+/*TEST_F(LinkedListTest, InsercaoListaVaziaFim) {
 	inserirElementoNoFim(&lista, 10, &tamanho);
 	EXPECT_EQ(tamanho, 1);
 	EXPECT_EQ(obterElementoEmPosicao(&lista, 0), 10);
@@ -29,7 +29,7 @@ TEST_F(LinkedListTest, InsercaoListaVaziaInicio) {
 	inserirElementoNoInicio(&lista, 10, &tamanho);
 	EXPECT_EQ(tamanho, 1);
 	EXPECT_EQ(obterElementoEmPosicao(&lista, 0), 10);
-}
+}*/
 
 TEST_F(LinkedListTest, InsercaoListaNaoVaziaFim) {
 	int numElementos = 100;
@@ -42,7 +42,7 @@ TEST_F(LinkedListTest, InsercaoListaNaoVaziaFim) {
 	}	
 }
 
-TEST_F(LinkedListTest, InsercaoListaNaoVaziaInicio) {
+/*TEST_F(LinkedListTest, InsercaoListaNaoVaziaInicio) {
 	int numElementos = 100;
 	for (int i = 0; i < numElementos; i++) {
 		inserirElementoNoInicio(&lista, i, &tamanho);
@@ -129,4 +129,4 @@ TEST_F(LinkedListTest, RemocaoMeio) {
 		removerElementoEmPosicao(&lista, ceil(tamanho / 2), &tamanho);
 	}
 	EXPECT_EQ(tamanho, 0);
-}
+}*/

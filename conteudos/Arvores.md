@@ -197,3 +197,7 @@ void inserir(struct noBst** raiz, int val, int* tamanho)
 //pode ser implementado com recursão
 bool buscar(struct noBst* raiz, int val)
 ```
+
+## Recursão e Alocação de Memória
+
+Essas funções podem ser implementadas de forma recursiva, mas é interessante que analisemos como os dados ficam dispostos na memória.

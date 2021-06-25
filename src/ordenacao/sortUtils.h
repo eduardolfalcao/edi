@@ -267,3 +267,44 @@ void quickSort(int* v, int ini, int fim) {
         quickSort(v, indexPivo + 1, fim);   //indexPivo já está no seu local
     }
 }
+
+void countingSort(int** v, int tamV) {
+    int iMenor = 0;
+    int iMaior = 0;
+    for (int i = 0; i < tamV; i++) {
+        if ((*v)[i] < (*v)[iMenor])
+            iMenor = i;
+        if((*v)[i] > (*v)[iMaior])
+            iMaior = i;
+    }
+
+    int vMenor = (*v)[iMenor];
+    int vMaior = (*v)[iMaior];
+
+    int novoTam = (*v)[iMaior] - (*v)[iMenor] + 1;
+    //o vetor contagem dirá quantas vezes cada elemento 
+    //aparece no vetor v
+    int* contagem = (int*)calloc(novoTam,sizeof(int));
+    for (int i = 0; i < tamV; i++) {
+        //precisamos ter cuidado para ajustar o índice
+        //para a posiçao correta assumindo que o menor
+        //valor pode não ser 0
+        int indiceContagem = (*v)[i] - (*v)[iMenor];
+        contagem[indiceContagem]++;
+    }
+
+    //fazer com que contagem possua valores cumulativos
+    for (int i = 1; i < novoTam; i++) 
+        contagem[i] += contagem[i - 1];
+    
+    int* ordenado = (int*)malloc(tamV * sizeof(int));
+    bool* adicionado = (bool*)calloc(tamV,sizeof(bool));
+    for (int i = 0; i < tamV; i++) {
+        int indiceOrdenado = contagem[(*v)[i] - (*v)[iMenor]] - 1;
+        while (adicionado[indiceOrdenado])
+            indiceOrdenado--;
+        ordenado[indiceOrdenado] = (*v)[i];
+        adicionado[indiceOrdenado] = true;
+    }
+    (*v) = ordenado;
+}

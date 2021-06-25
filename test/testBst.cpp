@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../src/bst/bibliotecas/bst.h"
+#include "../src/bst/bibliotecas/bst-alunos.h"
 #include <math.h>
 
 
@@ -54,7 +54,7 @@ TEST_F(BstTest, BuscaBSTNaoVazia) {
 	EXPECT_FALSE(buscar(raiz, umValorQualquer));
 }
 
-TEST_F(BstTest, MinBST) {
+/*TEST_F(BstTest, MinBST) {
 	EXPECT_EQ(min(raiz), NULL);
 
 	inserir(&raiz, 10, &tamanho);
@@ -78,7 +78,7 @@ TEST_F(BstTest, MaxBST) {
 
 	inserir(&raiz, 100, &tamanho);
 	EXPECT_EQ(max(raiz), 100);
-}
+}*/
 
 TEST_F(BstTest, AlturaBST) {
 	EXPECT_EQ(altura(raiz), 0);
