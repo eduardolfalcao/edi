@@ -1,5 +1,6 @@
-#include "pch.h"
-#include "../src/listas/bibliotecas/arraylist.h"
+//#include "pch.h"
+#include "../src/listas/arraylist.h"
+#include <gtest/gtest.h>
 #include <math.h>
 
 class ArrayListTest : public ::testing::Test {
@@ -171,4 +172,9 @@ TEST_F(ArrayListTest, AtualizarElemento) {
 	for (int i = 0; i < numElementos; i++) {
 		EXPECT_EQ(obterElementoEmPosicao(lista, i, tamanho), numQualquer);
 	}
+}
+
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
