@@ -1,6 +1,10 @@
-//#include "pch.h"
-#include "../src/listas/arraylist.h"
-#include <gtest/gtest.h>
+//Para Windows (MS Visual Studio):
+#include "pch.h"
+
+//Para Linux:
+//#include <gtest/gtest.h>
+
+#include "../src/listas/bibliotecas/arraylist.h"
 #include <math.h>
 
 class ArrayListTest : public ::testing::Test {
