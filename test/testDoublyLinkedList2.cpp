@@ -158,3 +158,8 @@ TEST_F(DoublyLinkedListTest2, RemocaoMeio) {
 	EXPECT_EQ(lista->cabeca, nullptr);
 	EXPECT_EQ(lista->cauda, nullptr);
 }
+
+int main(int argc, char** argv) {
+	testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+}
