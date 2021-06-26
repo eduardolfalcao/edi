@@ -2,14 +2,6 @@
 
 Este repositório conterá as notas de aula para a disciplina Algoritmos e Estruturas de Dados I, ofertada pelo Departamento de Engenharia de Computação e Automação da UFRN.
 
-## Apresentação
-
-Olá pessoal :)
-
-Eu me chamo Eduardo de Lucena Falcão, e guiarei vocês no processo de aprendizagem da disciplina "Estrutura de Dados e Algoritmos".
-
-Se vocês chegaram até aqui, é fato que vocês conhecem os conceitos básicos relacionados à criação de programas: tipos primitivos, os diferentes tipos de operadores, estruturas de condição, estruturas de repetição, e funções. Usando estes conceitos básicos, chegou o momento de aprender a construir e aplicar estruturas de dados (EDs) para criar programas mais complexos. Muito mais importante do que programar as EDs e suas operações: discutiremos noções de performance de cada ED e refletiremos qual ED é mais adequada para quais situações/problemas. Por fim, mas não necessariamente nessa ordem, além de todo esse estudo sobre EDs, que envolve a implementação de algoritmos para manipular as EDs, também estudaremos algoritmos de ordenação.
-
 ## Conteúdos
 
 ### Unidade I
@@ -26,20 +18,22 @@ Se vocês chegaram até aqui, é fato que vocês conhecem os conceitos básicos 
 
 4. [Filas](conteudos/Filas.md)
 
-5. [Algoritmos de Busca](conteudos/Busca.md)
+### Unidade II
 
-6. [Algoritmos de Ordenação](conteudos/Ordenacao.md)
+1. [Algoritmos de Busca](conteudos/Busca.md)
 
-    6.1. [SelectionSort](conteudos/ordenacao/SelectionSort.md)
+2. [Algoritmos de Ordenação](conteudos/Ordenacao.md)
 
-    6.2. [BubbleSort](conteudos/ordenacao/BubbleSort.md)
+    2.1. [SelectionSort](conteudos/ordenacao/SelectionSort.md)
 
-    6.3. [InsertionSort](conteudos/ordenacao/InsertionSort.md)
+    2.2. [BubbleSort](conteudos/ordenacao/BubbleSort.md)
 
-    6.4. [MergeSort](conteudos/ordenacao/MergeSort.md)
+    2.3. [InsertionSort](conteudos/ordenacao/InsertionSort.md)
 
-    6.5. [QuickSort](conteudos/ordenacao/QuickSort.md)
+    2.4. [MergeSort](conteudos/ordenacao/MergeSort.md)
 
-7. [Árvores](conteudos/Arvores.md)
-    
-## Avaliação
+    2.5. [QuickSort](conteudos/ordenacao/QuickSort.md)
+
+### Unidade III
+
+1. [Árvores](conteudos/Arvores.md)
