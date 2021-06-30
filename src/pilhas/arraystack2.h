@@ -24,7 +24,7 @@ void empilhar(struct arraystack** pilha, int valor){
 }
 
 //retornar true se a pilha for nula ou vazia
-bool vazio(struct arraystack* pilha) {
+bool vazia(struct arraystack* pilha) {
     //TODO
 }
 
