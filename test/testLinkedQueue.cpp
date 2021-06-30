@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../src/filas/bibliotecas/linkedqueue2.h"
+#include "../src/filas/bibliotecas/linkedqueue.h"
 
 class LinkedQueueTest : public ::testing::Test {
 protected:
