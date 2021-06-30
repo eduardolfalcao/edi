@@ -9,8 +9,13 @@
 class ArrayQueueTest2 : public ::testing::Test {
 protected:
 	virtual void TearDown() {
-		free(fila->elementos);
-		free(fila);
+		if (fila != NULL) {
+			if (fila->elementos != NULL) {
+				free(fila->elementos);
+			}
+			free(fila);
+			fila = NULL;
+		}
 	}
 
 	virtual void SetUp() {
@@ -19,6 +24,15 @@ protected:
 
 	struct arrayqueue* fila;
 };
+
+TEST_F(ArrayQueueTest2, EnfileiramentoFilaNula) {
+	TearDown();
+
+	int numQualquer = 123456;
+	enfileirar(&fila, numQualquer);
+	EXPECT_EQ(fila->qtdade, 1);
+	EXPECT_EQ(frente(fila), numQualquer);
+}
 
 TEST_F(ArrayQueueTest2, EnfileiramentoFilaVazia) {
 	EXPECT_EQ(fila->qtdade, 0);
@@ -47,6 +61,12 @@ TEST_F(ArrayQueueTest2, EnfileiramentoFilaCheia) {
 	EXPECT_EQ(fila->qtdade, fila->tamanho);	
 }
 
+TEST_F(ArrayQueueTest2, DesenfileiramentoFilaNula) {
+	TearDown();
+
+	EXPECT_EQ(desenfileirar(fila), INT_MIN);
+}
+
 TEST_F(ArrayQueueTest2, DesenfileiramentoFilaVazia) {
 	EXPECT_EQ(desenfileirar(fila), INT_MIN);
 	EXPECT_EQ(fila->qtdade, 0);
@@ -63,6 +83,12 @@ TEST_F(ArrayQueueTest2, DesenfileiramentoFilaNaoVazia) {
 	EXPECT_EQ(fila->qtdade, 0);
 	EXPECT_EQ(desenfileirar(fila), INT_MIN);
 	EXPECT_EQ(fila->qtdade, 0);
+}
+
+TEST_F(ArrayQueueTest2, FrenteFilaNula) {
+	TearDown();
+
+	EXPECT_EQ(frente(fila), INT_MIN);
 }
 
 TEST_F(ArrayQueueTest2, FrenteFilaVazia) {
