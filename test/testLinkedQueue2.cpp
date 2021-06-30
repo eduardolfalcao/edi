@@ -126,3 +126,8 @@ TEST_F(LinkedQueueTest2, FrenteFilaNaoVazia) {
 	EXPECT_EQ(frente(fila), numQualquer);
 	EXPECT_EQ(frente(fila), numQualquer);
 }
+
+int main(int argc, char** argv) {
+	testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+}
