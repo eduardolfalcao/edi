@@ -105,15 +105,20 @@ TEST_F(ArrayStackTest2, TopoPilhaNaoVazia) {
 TEST_F(ArrayStackTest2, VazioPilhaNula) {
 	TearDown();
 
-	EXPECT_TRUE(vazio(pilha));
+	EXPECT_TRUE(vazia(pilha));
 }
 
 TEST_F(ArrayStackTest2, VazioPilhaVazia) {
-	EXPECT_TRUE(vazio(pilha));
+	EXPECT_TRUE(vazia(pilha));
 }
 
 TEST_F(ArrayStackTest2, VazioPilhaNaoVazia) {
 	int numQualquer = 123456;
 	empilhar(&pilha, numQualquer);
-	EXPECT_FALSE(vazio(pilha));
+	EXPECT_FALSE(vazia(pilha));
+}
+
+int main(int argc, char** argv) {
+	testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
 }
