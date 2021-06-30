@@ -6,7 +6,7 @@
 
 #include "../src/filas/bibliotecas/arrayqueue2.h"
 
-class ArrayQueueTest : public ::testing::Test {
+class ArrayQueueTest2 : public ::testing::Test {
 protected:
 	virtual void TearDown() {
 		free(fila->elementos);
@@ -20,43 +20,43 @@ protected:
 	struct arrayqueue* fila;
 };
 
-TEST_F(ArrayQueueTest, EnfileiramentoFilaVazia) {
+TEST_F(ArrayQueueTest2, EnfileiramentoFilaVazia) {
 	EXPECT_EQ(fila->qtdade, 0);
 	int numQualquer = 123456;
-	enfileirar(fila, numQualquer);
+	enfileirar(&fila, numQualquer);
 	EXPECT_EQ(fila->qtdade, 1);
 	EXPECT_EQ(frente(fila), numQualquer);
 }
 
-TEST_F(ArrayQueueTest, EnfileiramentoFilaNaoVazia) {
+TEST_F(ArrayQueueTest2, EnfileiramentoFilaNaoVazia) {
 	int numQualquer = 123456;
-	enfileirar(fila, numQualquer);
+	enfileirar(&fila, numQualquer);
 	int outroNumQualquer = 7890;
-	enfileirar(fila, outroNumQualquer);
+	enfileirar(&fila, outroNumQualquer);
 	EXPECT_EQ(fila->qtdade, 2);
 	EXPECT_EQ(frente(fila), numQualquer);
 }
 
-TEST_F(ArrayQueueTest, EnfileiramentoFilaCheia) {
+TEST_F(ArrayQueueTest2, EnfileiramentoFilaCheia) {
 	for (int i = 0; i < fila->tamanho; i++) {
-		enfileirar(fila, i);
+		enfileirar(&fila, i);
 	}
 	EXPECT_EQ(fila->qtdade, fila->tamanho);
-	enfileirar(fila, 123);
+	enfileirar(&fila, 123);
 	//fila cheia, não enfileiramos mais
 	EXPECT_EQ(fila->qtdade, fila->tamanho);	
 }
 
-TEST_F(ArrayQueueTest, DesenfileiramentoFilaVazia) {
+TEST_F(ArrayQueueTest2, DesenfileiramentoFilaVazia) {
 	EXPECT_EQ(desenfileirar(fila), INT_MIN);
 	EXPECT_EQ(fila->qtdade, 0);
 }
 
-TEST_F(ArrayQueueTest, DesenfileiramentoFilaNaoVazia) {
+TEST_F(ArrayQueueTest2, DesenfileiramentoFilaNaoVazia) {
 	int numQualquer = 123456;
-	enfileirar(fila, numQualquer);
+	enfileirar(&fila, numQualquer);
 	int outroNumQualquer = 7890;
-	enfileirar(fila, outroNumQualquer);
+	enfileirar(&fila, outroNumQualquer);
 	EXPECT_EQ(desenfileirar(fila), numQualquer);
 	EXPECT_EQ(fila->qtdade, 1);
 	EXPECT_EQ(desenfileirar(fila), outroNumQualquer);
@@ -65,20 +65,20 @@ TEST_F(ArrayQueueTest, DesenfileiramentoFilaNaoVazia) {
 	EXPECT_EQ(fila->qtdade, 0);
 }
 
-TEST_F(ArrayQueueTest, FrenteFilaVazia) {
+TEST_F(ArrayQueueTest2, FrenteFilaVazia) {
 	EXPECT_EQ(frente(fila), INT_MIN);
 }
 
-TEST_F(ArrayQueueTest, FrenteFilaNaoVazia) {
+TEST_F(ArrayQueueTest2, FrenteFilaNaoVazia) {
 	int numQualquer = 123456;
-	enfileirar(fila, numQualquer);
+	enfileirar(&fila, numQualquer);
 	EXPECT_EQ(frente(fila), numQualquer);
 }
 
 
-TEST_F(ArrayQueueTest, EnfileiramentoDesenfileiramentoFilaCircular) {
+TEST_F(ArrayQueueTest2, EnfileiramentoDesenfileiramentoFilaCircular) {
 	for (int i = 0; i < fila->tamanho; i++) {
-		enfileirar(fila, i);
+		enfileirar(&fila, i);
 	}
 	desenfileirar(fila);
 	EXPECT_EQ(fila->qtdade, fila->tamanho-1);
@@ -87,8 +87,8 @@ TEST_F(ArrayQueueTest, EnfileiramentoDesenfileiramentoFilaCircular) {
 
 	EXPECT_EQ(frente(fila), 2);
 
-	enfileirar(fila, 10);
-	enfileirar(fila, 11);
+	enfileirar(&fila, 10);
+	enfileirar(&fila, 11);
 
 	for (int i = 2; i < fila->tamanho+2; i++) {
 		EXPECT_EQ(frente(fila), i);

@@ -14,8 +14,10 @@ struct arrayqueue* inicializar(int tamArray) {
     //TODO
 }
 
+//se a fila estiver nula, instancie a fila com tamanho 10
+//por causa da possibilidade de instanciacao usamos struct arrayqueue**
 //se a fila encher, simplesmente não enfileire
-void enfileirar(struct arrayqueue* fila, int val) {
+void enfileirar(struct arrayqueue** fila, int val) {
     //TODO
 }
 
