@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../src/provas/unidade1respaluno.h"
+#include "../src/provas/unidade1resp.h"
 
 class Unidade1Test : public ::testing::Test {
 protected:
@@ -9,76 +9,71 @@ protected:
 	}
 
 	void TearDownArrayList() {
-		tamanhoArrayList = 0;
-		arrayList = NULL;
-		capacidadeArrayList = 0;
+		free(listaAL->vetor);
+		free(listaAL);
 	}
 
 	void TearDownDoublyLinkedList() {
 		struct no* aux;
-		while (doublyLinkedList != NULL) {
-			aux = doublyLinkedList;
-			doublyLinkedList = doublyLinkedList->prox;
+		struct no* proxNo = listaDLL->cabeca;
+		while (proxNo != NULL) {
+			aux = proxNo;
+			proxNo = proxNo->prox;
 			free(aux);
 		}
-		tamanhoDoublyLinkedList = 0;
+		free(listaDLL);
 	}
 
 	virtual void SetUp() {
-		capacidadeArrayList = 10;
-		inicializar(&arrayList, capacidadeArrayList);
+		listaAL = inicializarAL(10);
+		listaDLL = inicializarDLL();
 	}
 
-	int tamanhoArrayList = 0;
-	int capacidadeArrayList = 0;
-	int* arrayList = NULL;
-
-	int tamanhoDoublyLinkedList = 0;
-	struct no* doublyLinkedList = NULL;
-
+	struct arraylist* listaAL = NULL;
+	struct doublylinkedlist* listaDLL = NULL;
 };
 
 TEST_F(Unidade1Test, InverterArrayListNumPar) {
 	int qtdadeElementos = 10;
 	for (int i = 1; i <= qtdadeElementos; i++) {
-		inserirElementoNoFim(&arrayList, i, &tamanhoArrayList, &capacidadeArrayList);
+		inserirElementoNoFim(listaAL, i);
 	}
-	inverterArrayList(arrayList, tamanhoArrayList);
+	inverterArrayList(listaAL);
 	for (int i = 0; i < qtdadeElementos; i++) {
-		EXPECT_EQ(obterElementoEmPosicao(arrayList, i, tamanhoArrayList), qtdadeElementos - i);
+		EXPECT_EQ(obterElementoEmPosicao(listaAL, i), qtdadeElementos - i);
 	}
 }
 
 TEST_F(Unidade1Test, InverterArrayListNumImpar) {
 	int qtdadeElementos = 11;
 	for (int i = 1; i <= qtdadeElementos; i++) {
-		inserirElementoNoFim(&arrayList, i, &tamanhoArrayList, &capacidadeArrayList);
+		inserirElementoNoFim(listaAL, i);
 	}
-	inverterArrayList(arrayList, tamanhoArrayList);
+	inverterArrayList(listaAL);
 	for (int i = 0; i < qtdadeElementos; i++) {
-		EXPECT_EQ(obterElementoEmPosicao(arrayList, i, tamanhoArrayList), qtdadeElementos - i);
+		EXPECT_EQ(obterElementoEmPosicao(listaAL, i), qtdadeElementos - i);
 	}
 }
 
 TEST_F(Unidade1Test, InverterDoublyLinkedListNumPar) {
 	int qtdadeElementos = 10;
 	for (int i = 1; i <= qtdadeElementos; i++) {
-		inserirElementoNoFim(&doublyLinkedList, i, &tamanhoDoublyLinkedList);
+		inserirElementoNoFim(listaDLL, i);
 	}
-	inverterDoublyLinkedList(&doublyLinkedList, tamanhoDoublyLinkedList);
+	inverterDoublyLinkedList(listaDLL);
 	for (int i = 0; i < qtdadeElementos; i++) {
-		EXPECT_EQ(obterElementoEmPosicao(&doublyLinkedList, i), qtdadeElementos-i);
+		EXPECT_EQ(obterElementoEmPosicao(listaDLL, i), qtdadeElementos-i);
 	}	
 }
 
 TEST_F(Unidade1Test, InverterDoublyLinkedListNumImpar) {
 	int qtdadeElementos = 11;
 	for (int i = 1; i <= qtdadeElementos; i++) {
-		inserirElementoNoFim(&doublyLinkedList, i, &tamanhoDoublyLinkedList);
+		inserirElementoNoFim(listaDLL, i);
 	}
-	inverterDoublyLinkedList(&doublyLinkedList, tamanhoDoublyLinkedList);
+	inverterDoublyLinkedList(listaDLL);
 	for (int i = 0; i < qtdadeElementos; i++) {
-		EXPECT_EQ(obterElementoEmPosicao(&doublyLinkedList, i), qtdadeElementos - i);
+		EXPECT_EQ(obterElementoEmPosicao(listaDLL, i), qtdadeElementos - i);
 	}
 }
 
@@ -87,13 +82,13 @@ TEST_F(Unidade1Test, AdicionarOrdenadoViaBuscaBinaria) {
 	//adicionar um elemento sem precisar alocar mais espaco
 	int qtdadeElementos = 9;
 	for (int i = 1; i <= qtdadeElementos; i++) {
-		inserirElementoNoFim(&arrayList, i*2, &tamanhoArrayList, &capacidadeArrayList);
+		inserirElementoNoFim(listaAL, i*2);
 	}
-	insereOrdenado(arrayList, qtdadeElementos, rand() % (qtdadeElementos * 2));
+	insereOrdenado(listaAL, rand() % (qtdadeElementos * 2));
 	for (int i = 0; i < qtdadeElementos; i++) {		//na verdade, o tamanho do array 
 		                                            //eh qtdadeElementos+1 (dps da insercao)
 													//por isso que a seguinte comparacao 
 													//eh possivel 
-		EXPECT_TRUE(arrayList[i]<=arrayList[i+1]);
+		EXPECT_TRUE(listaAL->vetor[i] <= listaAL->vetor[i+1]);
 	}
 }
