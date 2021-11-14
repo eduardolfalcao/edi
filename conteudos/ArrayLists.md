@@ -16,10 +16,22 @@ Antes de investigar esses aspectos, vamos nos debruçar sobre as operações e s
 A princípio, vamos criar uma função para inicializar nosso array. A capacidade do array pode ser especificada no momento de sua criação. 
 
 ```c
-int* lista; 
+struct arraylist {
+    int* vetor;
+    int qtdade;     
+    int capacidade; //capacidade atual do vetor
+};
 
-void inicializar(int capacidade){
-    lista = calloc(capacidade, sizeof(int));
+struct arraylist* inicializar(int capacidade) {
+    //precisamos alocar memória para o struct
+    struct arraylist* lista = (struct arraylist*)malloc(sizeof(struct arraylist));
+    //também precisamos alocar memória para o int * (calloc inicializa as posições com 0)
+    lista->vetor = (int*)calloc(capacidade, sizeof(int));
+    //eh importante inicializar os valores do struct, 
+    //pois de outro modo eles iniciarão com lixo (valores utilizados por processos antigos)
+    lista->qtdade = 0;
+    lista->capacidade = capacidade;
+    return lista;
 }
 ```
 
@@ -34,21 +46,21 @@ A seguir é apresentada uma animação que ilustra um ArrayList sendo inicializa
 ![alt text](imgs/listas/arraylist/arraylist-insercao-fim.gif)
 
 ```c
-void duplicarCapacidade(){
-    int novaLista[2*sizeof(lista)];
-    for(int i = 0; i<sizeof(lista); i++){
+void duplicarCapacidade(struct arraylist* lista){
+    int novaLista[2 * lista->capacidade];
+    for(int i = 0; i < lista->capacidade; i++){
         novaLista[i] = lista[i];
     }
     free(lista);
     lista = novaLista;
 }
 
-void inserirElementoNoFim(int valor){
-    if(tamanho == sizeof(lista)){
-        duplicarCapacidade();
+void inserirElementoNoFim(struct arraylist* lista, int valor) {
+    if (lista->qtdade == lista->capacidade) {
+        duplicarCapacidade(lista);
     }
-    lista[tamanho] = valor;
-    tamanho++;
+    lista->vetor[lista->qtdade] = valor;
+    lista->qtdade++;
 }
 ```
 
@@ -57,8 +69,9 @@ void inserirElementoNoFim(int valor){
 A linguagem C nos provê ferramentas para um gerenciamento rigoroso de memória RAM. A forma mais trivial de aumentar o tamanho de um array é alocando um novo array com maior capacidade e copiando os elementos do array antigo para o novo array, como mostrado acima. Agora vamos usar a função **realloc**, que é capaz de aumentar o tamanho do bloco de memória alocado, movendo-o para outra posição na memória quando for necessário.
 
 ```c
-void duplicarCapacidade(){
-    lista = (int*)realloc(lista, 2*sizeof(lista)*sizeof(int));
+void duplicarCapacidade(struct arraylist* lista) {
+    lista->vetor = (int*)realloc(lista->vetor, 2 * lista->capacidade * sizeof(int));
+    lista->capacidade = 2 * lista->capacidade;
 }
 ```
 **Para refletir:**
@@ -75,11 +88,9 @@ A seguir são apresentadas uma animação que ilustra um ArrayList sendo inicial
 ![alt text](imgs/listas/arraylist/arraylist-obtencao.gif)
 
 ```c
-int tamanho = 0;
-
-int obterElemento(int posicao){
-    if(posicao >= 0 && posicao < tamanho){
-        return lista[posicao];
+int obterElementoEmPosicao(struct arraylist* lista, int posicao) {
+    if (posicao >= 0 && posicao < lista->qtdade) {
+        return lista->vetor[posicao];
     }
 }
 ```
@@ -90,21 +101,24 @@ Para inserir um elemento em uma posição específica precisamos tomar o cuidado
 
 Lembre-se que na interface *inserirElemento(int valor, int posicao)*, posição refere-se ao índice da lista. Ou seja, para adicionar na primeira posição, *posicao = 0*. Note também que precisamos verificar se posição é um valor válido.
 
-A seguir é apresentada uma animação que ilustra um ArrayList sendo preenchido, e no final acontece uma inserção na posição 0. Depois é apresentado o código-fonte da função *inserirElementoEmPosicao*.
+A seguir é apresentada uma animação que ilustra um ArrayList sendo preenchido, e no final acontece uma inserção na posição 0. 
+
+Obs: o código-fonte da função *inserirElementoEmPosicao* apresentado na animação está incorreto. O código-fonte apresentado depois da animação está correto.
 
 ![alt text](imgs/listas/arraylist/arraylist-insercao-posicao.gif)
 
 ```c
-void inserirElementoEmPosicao(int valor, int posicao){
-    if(posicao >= 0 && posicao <= tamanho){    
-        if(tamanho == sizeof(lista)){
-            duplicarCapacidade();
+void inserirElementoEmPosicao(struct arraylist* lista, int valor, int posicao) {
+    if (posicao >= 0 && posicao <= lista->qtdade) {
+        if (lista->qtdade == lista->capacidade) {
+            duplicarCapacidade(lista);
         }
-        for(int i = tamanho; i > posicao; i--){
-            lista[i] = lista[i-1];
+
+        for (int i = lista->qtdade; i > posicao; i--) {
+            lista->vetor[i] = lista->vetor[i - 1];
         }
-        lista[posicao] = valor;
-        tamanho++;
+        lista->vetor[posicao] = valor;
+        lista->qtdade++;
     }
 }
 ```
@@ -114,9 +128,9 @@ void inserirElementoEmPosicao(int valor, int posicao){
 Para atualizar o valor em uma posição específica da lista basta nos certificarmos de que aquela posição é válida.
 
 ```c
-void atualizarElemento(int valor, int posicao){
-    if(posicao >= 0 && posicao < tamanho){    
-        lista[posicao] = valor;
+void atualizarElemento(struct arraylist* lista, int valor, int posicao) {
+    if (posicao >= 0 && posicao < lista->qtdade) {
+        lista->vetor[posicao] = valor;
     }
 }
 ```
@@ -150,13 +164,13 @@ A seguir são apresentadas animação e implementação desta operação.
 ![alt text](imgs/listas/arraylist/arraylist-remocao-posicao.gif)
 
 ```c
-void removerElementoEmPosicao(int posicao){
-    if(posicao >= 0 && posicao < tamanho){    
-        while(posicao < tamanho-1){
-            lista[posicao] = lista[posicao+1];
+void removerElementoEmPosicao(struct arraylist* lista, int posicao) {
+    if (posicao >= 0 && posicao < lista->qtdade) {
+        while (posicao < lista->qtdade - 1) {
+            lista->vetor[posicao] = lista->vetor[posicao + 1];
             posicao++;
         }
-        tamanho--;
+        lista->qtdade--;
     }
 }
 ```
