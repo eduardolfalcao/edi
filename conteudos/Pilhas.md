@@ -40,8 +40,8 @@ Experimente simular graficamente as seguintes operações:
 
 ## Implementação: Pilhas usando Arrays
 
-Como pilhas são listas com restrições, é possível perceber que nós podemos reaproveitar o código de ArrayList e modificá-lo para que ele incorpore as restrições de listas. 
+Como pilhas são listas com restrições, é possível perceber que nós podemos reaproveitar o código de ArrayList e modificá-lo para que ele incorpore as restrições de pilhas. 
 
 ## Implementação: Pilhas usando LinkedLists
 
-Como pilhas são listas com restrições, é possível perceber que nós podemos reaproveitar o código de LinkedList e modificá-lo para que ele incorpore as restrições de listas.
+Como pilhas são listas com restrições, é possível perceber que nós podemos reaproveitar o código de LinkedList e modificá-lo para que ele incorpore as restrições de pilhas.
