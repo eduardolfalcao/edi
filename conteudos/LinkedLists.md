@@ -39,7 +39,10 @@ O que já sabemos é que  ArrayLists são implementados com arrays e listas liga
 
 ## Operações em LinkedLists
 
-Listas ligadas são compostas por nós. Cada nó tem um valor e um ponteiro para o próximo nó. A primeira coisa que precisamos fazer é criar a estrutura que representa o nó.
+Listas ligadas são compostas por nós. 
+Cada nó tem um valor e um ponteiro para o próximo nó. 
+A primeira coisa que precisamos fazer é criar a estrutura que representa o nó.
+
 
 ```c
 struct no{
@@ -50,11 +53,14 @@ struct no{
 
 **Observação:** a partir de agora vamos colocar todas as nossas implementações de EDs em bibliotecas, ou seja, arquivos de extensão *.h*. Além disso, para fins de testes, vocês devem seguir exatamente as mesmas assinaturas de métodos que eu usar, pois assim eu conseguirei automatizar as correções.
 
-Ao contrário de ArrayLists, em que precisamos inicializar um array, LinkedLists podem inicializar completamente nulas, pois sempre que adicionarmos um novo nó utilizaremos a função *malloc* para alocarmos espaço na RAM para o novo nó. No entanto, precisamos pelo menos inicializar as variáveis que representará a nossa lista:
+Ao contrário de ArrayLists, em que precisamos inicializar um array, LinkedLists podem inicializar com o primeiro nó nulo, pois sempre que adicionarmos um novo nó utilizaremos a função *malloc* para alocarmos espaço na RAM para o novo nó. 
+No entanto, precisamos pelo menos inicializar as variáveis que representará a nossa lista:
 
 ```c
-int tamanho;
-struct no * lista;
+struct linkedlist {
+    struct no* cabeca;
+    int tamanho;
+};
 ```
 
 Na minha implementação eu estou usando a variável int tamanho pois sempre que eu adicionar um novo nó eu incrementarei esta variável. Isto evita a lenta contagem de elementos quando alguém precisar saber quantos elementos possui aquela lista.
@@ -69,17 +75,23 @@ Para imprimir a lista, basta partir da cabeça e imprimir o valor de todos os n�
 
 Segue código-fonte da função imprimir lista:
 ```c
-void imprimirLista(struct no **cabeca){
+void imprimirLista(struct linkedlist* lista) {
     //usamos o aux para percorrer a lista
-    if((*cabeca) != NULL){
-        struct no *aux = (*cabeca);
+    if (lista->cabeca != NULL) {
+        struct no* aux = lista->cabeca;
         //navega partindo da cabeça até chegar NULL
-        do{
-            printf("%d\n", aux->val);
+        printf("[");
+        do {
+            printf("%d", aux->val);
             aux = aux->prox;
+            if (aux != NULL) {
+                printf(", ");
+            }
         } while (aux != NULL);
-    } else{
-         printf("A lista está vazia!");
+        printf("]");
+    }
+    else {
+        printf("A lista está vazia!");
     }
 }
 ```
@@ -94,7 +106,7 @@ Em ambos os casos sempre precisaremos usar a função malloc para alocar espaço
 
 Segue assinatura da função para vocês implementarem:
 ```c
-void inserirElementoNoFim(struct no **cabeca, int valor, int* tamanho)
+void inserirElementoNoFim(struct linkedlist* lista, int valor)
 ```
 
 A seguir é apresentada uma ilustração (superficial) de como ocorre a inserção de um valor ao fim da lista:
@@ -112,28 +124,28 @@ Em ambos os casos sempre precisaremos usar a função malloc para alocar espaço
 
 Segue assinatura da função para vocês implementarem:
 ```c
-void inserirElementoNoInicio(struct no **cabeca, int valor, int* tamanho)
+void inserirElementoNoInicio(struct linkedlist* lista, int valor)
 ```
 
 ### Inserir Elemento em Posição Específica da Lista
 
 Segue assinatura da função para vocês implementarem:
 ```c
-void inserirElementoEmPosicao(struct no **cabeca, int valor, int posicao, int* tamanho){
+void inserirElementoEmPosicao(struct linkedlist* lista, int valor, int posicao)
 ```
 
 ### Obter Elemento em Posição Específica da Lista
 
 Segue assinatura da função para vocês implementarem:
 ```c
-int obterElementoEmPosicao(struct no **cabeca, int posicao)
+int obterElementoEmPosicao(struct linkedlist* lista, int posicao)
 ```
 
 ### Remover Elemento em Posição Específica da Lista
 
 Segue assinatura da função para vocês implementarem:
 ```c
-void removerElementoEmPosicao(struct no **cabeca, int posicao, int* tamanho){
+void removerElementoEmPosicao(struct linkedlist* lista, int posicao)
 ```
 
 ## Noções de Desempenho
