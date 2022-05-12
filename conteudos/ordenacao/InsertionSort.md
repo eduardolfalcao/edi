@@ -55,8 +55,8 @@ void insertionSortOP(int** v, int tamanho) {
         int j;
         for (j = 0; j < i; j++) {           //j eh a posicao correta na mao direita
             if(ordenado[j] > (*v)[i]) {     //achamos a posicao da insercao               
-                for (int k = j; k < i; k++) {   //agora vamos abrir espaco
-                    ordenado[k + 1] = ordenado[k];
+                for (int k = i; k > 0; k--) {   //agora vamos abrir espaco
+                    ordenado[k] = ordenado[k-1];
                 }
                 break;
             }            
