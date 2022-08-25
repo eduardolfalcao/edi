@@ -45,3 +45,5 @@ EDs são estudadas sob duas perspectivas:
 **TADs que estudaremos nessa disciplina: listas, filas, pilhas, árvores, tabelas hash, e heaps.**
 
 Em resumo, para cada combinação de TAD e ED, estudaremos suas operações, noções de custo, e implementação na linguagem C.
+
+### A seguir: [Listas](Listas.md)
