@@ -49,10 +49,10 @@ A seguir é apresentada uma animação que ilustra um ArrayList sendo inicializa
 void duplicarCapacidade(struct arraylist* lista){
     int novaLista[2 * lista->capacidade];
     for(int i = 0; i < lista->capacidade; i++){
-        novaLista[i] = lista[i];
+        novaLista[i] = lista->vetor[i];
     }
-    free(lista);
-    lista = novaLista;
+    free(lista->vetor);
+    lista->vetor = novaLista;
 }
 
 void inserirElementoNoFim(struct arraylist* lista, int valor) {
