@@ -4,7 +4,7 @@ Até agora estudamos algoritmos com complexidade de tempo O(n²), Insertion, Sel
 Porém, um aspecto negativo do MergeSort é que ele é out-of-place, com complexidade O(n).
 
 Agora vamos estudar o QuickSort.
-O QuickSort é **in-place**, ou seja, possui complexidade de espaço O(1).
+O QuickSort é **in-place**, ou seja, não precisar criar vetores adicionais para auxiliar na ordenação. Porém, o QuickSort é recursivo, e a quantidade de chamadas recursivas na pilha de chamadas fará com que ele consuma algum espaço extra.
 O QuickSort possui **complexidade de tempo de caso médio O(nlog(n))**.
 Masssss, o QuickSort possui **complexidade de tempo de pior caso O(n²)**.
 No entanto, essa complexidade de tempo de pior caso é nas maiorias do caso evitada se usarmos uma versão do QuickSort cujo pivô é escolhido aleatoriamente.
