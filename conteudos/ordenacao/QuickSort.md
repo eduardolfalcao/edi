@@ -8,7 +8,7 @@ O QuickSort é **in-place**, ou seja, possui complexidade de espaço O(1).
 O QuickSort possui **complexidade de tempo de caso médio O(nlog(n))**.
 Masssss, o QuickSort possui **complexidade de tempo de pior caso O(n²)**.
 No entanto, essa complexidade de tempo de pior caso é nas maiorias do caso evitada se usarmos uma versão do QuickSort cujo pivô é escolhido aleatoriamente.
-Por estas razões, o QuickSort é um dos principais algoritmos usados na maioria das LPs como forma de ordenação padrão.
+Por estas razões, o QuickSort é um dos principais algoritmos usados nas LPs como forma de ordenação padrão.
 
 Primeiro, vejamos a ilustração simplificada do QuickSort para o array: [9,4,3,6,3,2,8,7,1,5]. 
 
