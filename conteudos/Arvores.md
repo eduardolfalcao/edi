@@ -81,10 +81,10 @@ A seguir é ilustrada uma árvore genérica, sem valores, e cujos nós são iden
 ### Propriedades
 
 Árvores são consideradas EDs **recursivas**.
-Cada árvore contém uma raiz e aponta para outras ávores, que são consideradas suas sub-árvores.
+Cada árvore contém uma raiz e aponta para outras árvores, que são consideradas suas sub-árvores.
 Para fins de prática, tente identificar árvores e sub-árvores na ilustração anterior.
 
-Um ávore com n nós terá **n-1 links (ou arestas)**.
+Uma árvore com n nós terá **n-1 links (ou arestas)**.
 Cada nó, exceto a raiz, precisa ter uma aresta apontando pra ele, pois não podemos ter nós desconectados da árvore.
 
 **Profundidade** de um nó x é o comprimento do caminho da raiz até o nó x.
