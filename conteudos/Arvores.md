@@ -31,7 +31,7 @@ Um exemplo de aplicação é o armazenamento de dados de funcionários preservan
 ![alt text](imgs/arvores/ilustracao-arvore.png) | ![alt text](imgs/arvores/arvore-funcionarios.png) |
 :-------------------------:|:-------------------------:|
 
-No entando, a forma como organizamos os dados em uma árvore nos remete a uma representação invertida.
+No entanto, a forma como organizamos os dados em uma árvore nos remete a uma representação invertida.
 Note que Marina está na base da árvore, representando, portanto, a raiz da árvore.
 A representação da ED árvore é sempre assim: raiz no topo, e ramificações da árvore crescendo para baixo.
 
