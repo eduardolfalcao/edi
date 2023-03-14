@@ -54,5 +54,9 @@ dkms.conf
 # Activities
 atividades/
 
+# Visual Studio
+.vs/
+*.vcxproj
+
 Debug/
 packages/
