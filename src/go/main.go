@@ -7,20 +7,24 @@ import (
 )
 
 func main() {
-	var arraylist list.ArrayList
-	for i := 0; i < 15; i++ {
+	arraylist := list.ArrayList{}
+	arraylist.Init()
+
+	limit := 15
+
+	for i := 0; i < limit; i++ {
 		arraylist.Add(i)
 	}
-	for i := 0; i < 15; i++ {
+	for i := 0; i < limit; i++ {
 		fmt.Println(arraylist.Get(i))
 	}
-	for i := 0; i < 15; i++ {
+	for i := 0; i < limit; i++ {
 		if i%2 == 0 {
 			arraylist.Set(i*2, i)
 		}
 	}
 	fmt.Println("######################")
-	for i := 0; i < 10; i++ {
+	for i := 0; i < limit; i++ {
 		fmt.Println(arraylist.Get(i))
 	}
 }

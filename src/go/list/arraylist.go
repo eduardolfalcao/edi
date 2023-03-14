@@ -1,21 +1,29 @@
 package list
 
-/*type IList interface {
-	Add(value int)
-	AddOnIndex(value int, index int)
-	Remove()
-	RemoveOnIndex(index int)
-	Get(value int)
-	Set(value int, index int)
-	Size()
-}*/
+import "fmt"
 
 type ArrayList struct {
-	values   [10]int
-	tam, cap int
+	values []int
+	tam    int
+}
+
+func (arraylist *ArrayList) Init() {
+	fmt.Println("Testando init de ArrayList")
+	arraylist.values = make([]int, 10)
+}
+
+func (arraylist *ArrayList) double() {
+	doubledValues := make([]int, len(arraylist.values)*2)
+	for i := 0; i < len(arraylist.values); i++ {
+		doubledValues[i] = arraylist.values[i]
+	}
+	arraylist.values = doubledValues
 }
 
 func (arraylist *ArrayList) Add(value int) {
+	if arraylist.tam == len(arraylist.values) {
+		arraylist.double()
+	}
 	arraylist.values[arraylist.tam] = value
 	arraylist.tam++
 }
