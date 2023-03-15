@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/eduardolfalcao/edi/src/go/list"
 )
 
 func main() {
-	arraylist := list.ArrayList{}
+
+	fmt.Println("%T", make([]int, 10))
+	//var arraylist list.ArrayList
+	/*arraylist := list.ArrayList{}
 	arraylist.Init()
 
 	limit := 15
@@ -26,5 +27,5 @@ func main() {
 	fmt.Println("######################")
 	for i := 0; i < limit; i++ {
 		fmt.Println(arraylist.Get(i))
-	}
+	}*/
 }
