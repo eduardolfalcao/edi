@@ -3,7 +3,7 @@ package list
 type DoublyLinkedList struct {
 	head *Node2P
 	tail *Node2P
-	tam  int
+	size int
 }
 
 type Node2P struct {

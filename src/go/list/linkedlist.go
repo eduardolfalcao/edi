@@ -2,7 +2,7 @@ package list
 
 type LinkedList struct {
 	head *Node1P
-	tam  int
+	size int
 }
 
 type Node1P struct {
