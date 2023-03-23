@@ -1,13 +1,13 @@
 package list
 
 type LinkedList struct {
-	head *No
+	head *Node1P
 	tam  int
 }
 
-type No struct {
+type Node1P struct {
 	value int
-	next  *No
+	next  *Node1P
 }
 
 func (linkedlist *LinkedList) Add(value int) {
