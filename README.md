@@ -14,6 +14,8 @@ Este repositório conterá as notas de aula para a disciplina Algoritmos e Estru
 
     2.2. [LinkedLists](conteudos/LinkedLists.md)
 
+    2.2. [DoublyLinkedLists](conteudos/DoublyLinkedLists.md)
+
 3. [Pilhas](conteudos/Pilhas.md)
 
 4. [Filas](conteudos/Filas.md)
