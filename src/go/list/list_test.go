@@ -1,0 +1,176 @@
+package list
+
+import (
+	"testing"
+)
+
+func createLists(size int) [2]IList {
+	arraylist := &ArrayList{}
+	(*arraylist).Init(size)
+	lists := [2]IList{arraylist, &LinkedList{}}
+	return lists
+}
+
+func TestListAdd(t *testing.T) {
+	size := 10
+	lists := createLists(size)
+
+	for _, list := range lists {
+		for i := 0; i < size; i++ {
+			list.Add(i)
+			if list.Size() != i+1 {
+				t.Errorf("%T size is %d, but we expected it to be %d", list, list.Size(), i+1)
+			}
+		}
+	}
+}
+
+func TestListAddOnIndexBeginning(t *testing.T) {
+	size := 10
+	lists := createLists(size)
+
+	for _, list := range lists {
+		for i := 0; i < size; i++ {
+			list.AddOnIndex(i, 0)
+			if list.Size() != i+1 {
+				t.Errorf("%T size is %d, but we expected it to be %d", list, list.Size(), i+1)
+			}
+			val, err := list.Get(0)
+			if val != i {
+				t.Errorf("%T value on index 0 is %d, but we expected it to be %d", list, val, i)
+			}
+			if err != nil {
+				t.Errorf(err.Error())
+			}
+		}
+	}
+}
+
+func TestListAddOnIndexEnd(t *testing.T) {
+	size := 10
+	lists := createLists(size)
+
+	for _, list := range lists {
+		for i := 0; i < size; i++ {
+			//same behavior of Add()
+			list.AddOnIndex(i, list.Size())
+			if list.Size() != i+1 {
+				t.Errorf("%T size is %d, but we expected it to be %d", list, list.Size(), i+1)
+			}
+			val, err := list.Get(i)
+			if val != i {
+				t.Errorf("%T value on index %d is %d, but we expected it to be %d", list, i, val, i)
+			}
+			if err != nil {
+				t.Errorf(err.Error())
+			}
+		}
+	}
+}
+
+func TestListAddOnIndexMid(t *testing.T) {
+	size := 10
+	lists := createLists(size)
+
+	for _, list := range lists {
+		//fulfill list with 1's
+		for i := 0; i < size; i++ {
+			list.Add(1)
+		}
+
+		//add -1, 3 times, on index 2
+		for i := 0; i < 3; i++ {
+			list.AddOnIndex(-1, 2)
+		}
+
+		//check values before index 2 are the same
+		for i := 0; i < 8; i++ {
+			val, err := list.Get(i)
+			if i >= 2 && i < 5 {
+				if val != -1 {
+					t.Errorf("%T value on index %d is %d, but we expected it to be -1", list, i, val)
+				}
+			} else {
+				if val != 1 {
+					t.Errorf("%T value on index %d is %d, but we expected it to be 1", list, i, val)
+				}
+			}
+			if err != nil {
+				t.Errorf(err.Error())
+			}
+		}
+	}
+}
+
+func TestListRemoveOnIndexBeginning(t *testing.T) {
+	size := 10
+	lists := createLists(size)
+
+	for _, list := range lists {
+		for i := 0; i < size; i++ {
+			list.Add(i)
+		}
+
+		for i := 0; i < size; i++ {
+			val, err := list.Get(0)
+			if val != i {
+				t.Errorf("%T value on index 0 is %d, but we expected it to be %d", list, val, i)
+			}
+			if err != nil {
+				t.Errorf(err.Error())
+			}
+			list.RemoveOnIndex(0)
+			if list.Size() != size-i-1 {
+				t.Errorf("%T size is %d, but we expected it to be %d", list, list.Size(), size-i-1)
+			}
+		}
+	}
+}
+
+func TestListRemoveOnIndexEnd(t *testing.T) {
+	size := 10
+	lists := createLists(size)
+
+	for _, list := range lists {
+		for i := 0; i < size; i++ {
+			list.Add(i)
+		}
+
+		for i := size - 1; i >= 0; i-- {
+			val, err := list.Get(i)
+			if val != i {
+				t.Errorf("%T value on index 0 is %d, but we expected it to be %d", list, val, i)
+			}
+			if err != nil {
+				t.Errorf(err.Error())
+			}
+			list.RemoveOnIndex(i)
+			if list.Size() != i {
+				t.Errorf("%T size is %d, but we expected it to be %d", list, list.Size(), i)
+			}
+		}
+	}
+}
+
+func TestListRemoveOnIndexMid(t *testing.T) {
+	size := 10
+	lists := createLists(size)
+
+	for _, list := range lists {
+		for i := 0; i < size; i++ {
+			list.Add(i)
+		}
+
+		//remove on mid
+		list.RemoveOnIndex(2)
+		for i := 2; i < list.Size(); i++ {
+			val, err := list.Get(i)
+			if val != i+1 {
+				t.Errorf("%T value on index %d is %d, but we expected it to be %d", list, i, val, i+1)
+			}
+			if err != nil {
+				t.Errorf(err.Error())
+			}
+		}
+	}
+}

@@ -52,15 +52,6 @@ func (arraylist *ArrayList) AddOnIndex(value int, index int) error {
 	}
 }
 
-func (arraylist *ArrayList) Remove() error {
-	if arraylist.size > 0 {
-		arraylist.size--
-		return nil
-	} else {
-		return errors.New("Can't remove from arraylist with 0 size")
-	}
-}
-
 func (arraylist *ArrayList) RemoveOnIndex(index int) error {
 	if index >= 0 && index < arraylist.size {
 		for i := index; i < arraylist.size-1; i++ {
