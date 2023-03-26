@@ -115,9 +115,9 @@ func (linkedlist *LinkedList) Set(value, index int) error {
 		return nil
 	} else {
 		if index < 0 {
-			return errors.New("Can't get value from linkedlist on index < 0")
+			return errors.New("Can't set value in linkedlist on index < 0")
 		} else {
-			return errors.New("Can't get value from linkedlist on index >= linkedlist.size")
+			return errors.New("Can't set value in linkedlist on index >= linkedlist.size")
 		}
 	}
 }
