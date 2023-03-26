@@ -4,17 +4,35 @@ import (
 	"testing"
 )
 
-func createLists(size int) [2]IList {
+var size int
+var lists [2]IList
+
+func createLists(size int) {
 	arraylist := &ArrayList{}
 	(*arraylist).Init(size)
-	lists := [2]IList{arraylist, &LinkedList{}}
-	return lists
+	lists = [2]IList{arraylist, &LinkedList{}}
 }
 
-func TestListAdd(t *testing.T) {
-	size := 10
-	lists := createLists(size)
+func deleteLists() {
+	//in this case, createLists alone solves the problem
+	//however, I let the template here to be used in other tests
+	lists[0] = nil
+	lists[1] = nil
+}
 
+func setupTest() func() {
+	//before each test
+	size = 10
+	createLists(size)
+
+	//after each test
+	return func() {
+		deleteLists()
+	}
+}
+
+func TestAdd(t *testing.T) {
+	defer setupTest()()
 	for _, list := range lists {
 		for i := 0; i < size; i++ {
 			list.Add(i)
@@ -25,10 +43,8 @@ func TestListAdd(t *testing.T) {
 	}
 }
 
-func TestListAddOnIndexBeginning(t *testing.T) {
-	size := 10
-	lists := createLists(size)
-
+func TestAddOnIndexBeginning(t *testing.T) {
+	defer setupTest()()
 	for _, list := range lists {
 		for i := 0; i < size; i++ {
 			list.AddOnIndex(i, 0)
@@ -46,10 +62,8 @@ func TestListAddOnIndexBeginning(t *testing.T) {
 	}
 }
 
-func TestListAddOnIndexEnd(t *testing.T) {
-	size := 10
-	lists := createLists(size)
-
+func TestAddOnIndexEnd(t *testing.T) {
+	defer setupTest()()
 	for _, list := range lists {
 		for i := 0; i < size; i++ {
 			//same behavior of Add()
@@ -68,10 +82,8 @@ func TestListAddOnIndexEnd(t *testing.T) {
 	}
 }
 
-func TestListAddOnIndexMid(t *testing.T) {
-	size := 10
-	lists := createLists(size)
-
+func TestAddOnIndexMid(t *testing.T) {
+	defer setupTest()()
 	for _, list := range lists {
 		//fulfill list with 1's
 		for i := 0; i < size; i++ {
@@ -102,10 +114,8 @@ func TestListAddOnIndexMid(t *testing.T) {
 	}
 }
 
-func TestListRemoveOnIndexBeginning(t *testing.T) {
-	size := 10
-	lists := createLists(size)
-
+func TestRemoveOnIndexBeginning(t *testing.T) {
+	defer setupTest()()
 	for _, list := range lists {
 		for i := 0; i < size; i++ {
 			list.Add(i)
@@ -127,10 +137,8 @@ func TestListRemoveOnIndexBeginning(t *testing.T) {
 	}
 }
 
-func TestListRemoveOnIndexEnd(t *testing.T) {
-	size := 10
-	lists := createLists(size)
-
+func TestRemoveOnIndexEnd(t *testing.T) {
+	defer setupTest()()
 	for _, list := range lists {
 		for i := 0; i < size; i++ {
 			list.Add(i)
@@ -152,10 +160,8 @@ func TestListRemoveOnIndexEnd(t *testing.T) {
 	}
 }
 
-func TestListRemoveOnIndexMid(t *testing.T) {
-	size := 10
-	lists := createLists(size)
-
+func TestRemoveOnIndexMid(t *testing.T) {
+	defer setupTest()()
 	for _, list := range lists {
 		for i := 0; i < size; i++ {
 			list.Add(i)
@@ -167,6 +173,40 @@ func TestListRemoveOnIndexMid(t *testing.T) {
 			val, err := list.Get(i)
 			if val != i+1 {
 				t.Errorf("%T value on index %d is %d, but we expected it to be %d", list, i, val, i+1)
+			}
+			if err != nil {
+				t.Errorf(err.Error())
+			}
+		}
+	}
+}
+
+func TestSet(t *testing.T) {
+	defer setupTest()()
+	for _, list := range lists {
+		//fulfill list with 1's
+		for i := 0; i < size; i++ {
+			list.Add(1)
+		}
+
+		//set -1 on even indexes
+		for i := 0; i < size; i++ {
+			if i%2 == 0 {
+				list.Set(-1, i)
+			}
+		}
+
+		//check values before index 2 are the same
+		for i := 0; i < size; i++ {
+			val, err := list.Get(i)
+			if i%2 == 0 {
+				if val != -1 {
+					t.Errorf("%T value on index %d is %d, but we expected it to be -1", list, i, val)
+				}
+			} else {
+				if val == -1 {
+					t.Errorf("%T value on index %d is %d, but we expected it to be different from -1", list, i, val)
+				}
 			}
 			if err != nil {
 				t.Errorf(err.Error())
