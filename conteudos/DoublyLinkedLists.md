@@ -70,6 +70,8 @@ void imprimirLista(struct no** head) {
     }
 }
 ```
+Abaixo uma animação para ajudar no entendimento do algoritmo acima
+![Imprimir elementos da lista](./imgs/listas/doublyLinkedList/diplay.gif)
 
 ### Inserir Elemento no Fim da Lista
 
@@ -113,6 +115,8 @@ Segue assinatura da função para ser implementada:
 ```c
 void inserirElementoEmPosicao(struct linkedlist* lista, int valor, int posicao)
 ```
+Abaixo uma animação para ajudar na implementação
+![Inserir elemento no index](./imgs/listas/doublyLinkedList/addOnIndex.gif)
 
 ### Obter Elemento em Posição Específica da Lista
 
@@ -127,6 +131,8 @@ Segue assinatura da função para ser implementada:
 ```c
 void removerElementoEmPosicao(struct linkedlist* lista, int posicao)
 ```
+Abaixo uma animação para ajudar na implementação
+![Remover elemento do index](./imgs/listas/doublyLinkedList/removeOnIndex.gif)
 
 ## Noções de Desempenho
 
