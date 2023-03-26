@@ -5,12 +5,12 @@ import (
 )
 
 var size int
-var lists [2]IList
+var lists [3]IList
 
 func createLists(size int) {
 	arraylist := &ArrayList{}
 	(*arraylist).Init(size)
-	lists = [2]IList{arraylist, &LinkedList{}}
+	lists = [3]IList{arraylist, &LinkedList{}, &DoublyLinkedList{}}
 }
 
 func deleteLists() {
@@ -18,6 +18,7 @@ func deleteLists() {
 	//however, I let the template here to be used in other tests
 	lists[0] = nil
 	lists[1] = nil
+	lists[2] = nil
 }
 
 func setupTest() func() {
