@@ -105,7 +105,21 @@ func (linkedlist *LinkedList) Get(index int) (int, error) {
 }
 
 func (linkedlist *LinkedList) Set(value, index int) error {
-	return nil
+	if index >= 0 && index < linkedlist.size {
+		aux := linkedlist.head
+		//iterate until aux points to node on index specified
+		for i := 0; i < index; i++ {
+			aux = aux.next
+		}
+		aux.value = value
+		return nil
+	} else {
+		if index < 0 {
+			return errors.New("Can't get value from linkedlist on index < 0")
+		} else {
+			return errors.New("Can't get value from linkedlist on index >= linkedlist.size")
+		}
+	}
 }
 
 func (linkedlist *LinkedList) Size() int {
