@@ -76,7 +76,7 @@ Abaixo uma animação para ajudar no entendimento do algoritmo acima
 Temos dois casos principais:
 
 1. **A lista está vazia.** Nesse caso, basta apontar a cabeça (head) e a cauda (tail) da lista para o nó recém-criado.
-2. **A lista não está vazia.** Aqui temos uma vantagem com relação à implementação com linkedList. Não precisamos mais percorrer a lista para pegar o ultimo elemento, para somente então adicionar após ele. Nós temos a cauda da lista (tail) que aponta diretamente para o ultimo nó presente. Dessa forma, fica simples adicionar:
+2. **A lista não está vazia.** Aqui temos uma vantagem com relação à implementação com linkedList. Não precisamos mais percorrer a lista para pegar o último elemento, para somente então adicionar após ele. Nós temos a cauda da lista (tail) que aponta diretamente para o último nó presente. Dessa forma, fica simples adicionar:
     - Criamos um novo nó;
     - Apontamos o anterior (prev) desse nó para a cauda atual da lista;
     - Apontamos o próximo (next) da cauda para esse novo nó;
