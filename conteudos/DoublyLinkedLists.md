@@ -129,7 +129,7 @@ Segue assinatura da função para ser implementada:
 ```c
 void removerElementoEmPosicao(struct linkedlist* lista, int posicao)
 ```
-Abaixo uma animação para ajudar na implementação
+Abaixo uma animação para ajudar no entendimento do algoritmo.
 ![Remover elemento do index](./imgs/listas/doublyLinkedList/removeOnIndex.gif)
 
 ## Noções de Desempenho
