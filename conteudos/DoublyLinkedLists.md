@@ -8,7 +8,7 @@ Porém, ainda existem alguns pontos extremamente importantes que nós podemos me
 
 **Definição**
 
-> Estrutura de dados linear, na qual os elementos não são armazenados em locais de memória contíguos. Os elementos em uma lista duplamente ligada são vinculados usando nós onde cada nó contém um campo de dados e dois ponteiros: um para o próximo nó na lista e outro para o anterior.
+> DoublyLinkedLists (ou listas duplamente ligadas, em português) são listas implementadas com nós, e cada nó possui um espaço de memória para armazenar o elemento, outros dois espaços de memória para armazenar os ponteiros (endereço de memória) para os nós anterior e seguinte.
 
 Segue abaixo um modelo de representação do funcionamento de uma DoublyLinkedList.
 
