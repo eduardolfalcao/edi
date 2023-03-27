@@ -16,7 +16,7 @@ Cada ED traz consigo vantagens e desvantagens na operação de um TAD. E com as 
 
 ## Considerações de Desempenho de Espaço (RAM)
 
-Um ponto positivo é que, assim com as LinkedLists, as DoublyLinkedLists nunca terão espaço ocioso, ao contrário de ArrayLists. No entanto, para cada elemento armazenado em uma lista duplamente ligada, dois espaços adicionais (2 x 4 bytes) é alocado para armazenar o ponteiro do próximo nó e do anterior.
+Um ponto positivo é que, assim como as LinkedLists, as DoublyLinkedLists nunca terão espaço ocioso, ao contrário de ArrayLists. No entanto, para cada elemento armazenado em uma lista duplamente ligada, dois espaços adicionais (2 x 4 bytes) é alocado para armazenar o ponteiro do próximo nó e do anterior.
 
 ## Estrutura
 
