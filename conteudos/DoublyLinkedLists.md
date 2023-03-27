@@ -10,7 +10,7 @@ Além dessa peculiaridade relacionada ao gerenciamento de memória, as LinkedLis
 
 Segue abaixo um modelo de representação do funcionamento de uma DoublyLinkedList.
 
-![alt text](imgs/listas/doublyLinkedList/doublylinkedlist-apresentacao.png)
+![doublylinkedlist apresentação](imgs/listas/doublyLinkedList/doublylinkedlist-apresentacao.png)
 
 Cada ED traz consigo vantagens e desvantagens na operação de um TAD. E com as DoublyLinkedLists não é diferente. Além de termos as vantagens de uma LinkedList ganhamos alguns outros pontos extremamente importantes com relação ao desempenho.
 
@@ -47,7 +47,7 @@ Para imprimir a lista, podemos seguir o mesmo princípio utilizado nas LinkedLis
 Segue abaixo um código em `C` demonstrando essa implementação.
 
 ```c
-void imprimirLista(struct no** head) {
+void imprimirLista(struct no* head) {
     // usamos o aux para percorrer a lista
     if ((*head) != NULL) {
         struct no* aux = (*head);
