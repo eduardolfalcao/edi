@@ -25,17 +25,16 @@ A primeira coisa que precisamos fazer é criar a estrutura que representa o nó.
 
 ```c
 struct DoublyLinkedList {
-	head   *Node # inicio da lista
-	length int   # quantidade de elementos presentes na lista
-    tail   *Node # ultimo elemento da lista
-}
+	head   *Node;	// início da lista
+	length int;   	// quantidade de elementos presentes na lista
+	tail   *Node; 	// último elemento da lista
+};
 
 struct Node {
-    prev  *Node # Nó anterior
-	value int   # Valor presente no nó
-	next  *Node # Próximo nó
-}
-```
+	prev  *Node; 	// nó anterior
+	value int;   	// valor presente no nó
+	next  *Node; 	// próximo nó
+};
 
 ## Operações em DoublyLinkedLists
 
