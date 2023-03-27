@@ -14,7 +14,7 @@ Segue abaixo um modelo de representação do funcionamento de uma DoublyLinkedLi
 
 ![alt text](imgs/listas/doublyLinkedList/doublylinkedlist-apresentacao.png)
 
-Cada ED traz consigo vantagens e desvantagens na operação de um TAD. E com as DoublyLinkedLists não é diferente. Além de termos as vantagens de uma LinkedList ganhamos alguns outros pontos extremamente importantes com relação a desempenho.
+Cada ED traz consigo vantagens e desvantagens na operação de um TAD. E com as DoublyLinkedLists não é diferente. Além de termos as vantagens de uma LinkedList ganhamos alguns outros pontos extremamente importantes com relação ao desempenho.
 
 ## Considerações de Desempenho de Espaço (RAM)
 
