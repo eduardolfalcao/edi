@@ -38,7 +38,7 @@ struct Node {
 
 ## Operações em DoublyLinkedLists
 
-Como as operações com LinkedLists e DoublyLinkedLists são extremamente semelhantes devendo apenas nos preocuparmos com o ajuste de ponteiros extras, abaixo deixarei detalhado apenas alguns metodos principais como iterar para imprimir a lista e a manipulação das informações utilizando os ponteiros da cabeça e cauda para adicionar elementos no inicio e fim da lista. Os demais metodos estão apenas com suas respectivas sugestões de assinatura para facilitar o processo de desenvolvimento.
+Como as operações com LinkedLists e DoublyLinkedLists são extremamente semelhantes devendo apenas nos preocuparmos com o ajuste de ponteiros extras, abaixo deixarei detalhado apenas alguns metodos principais como iterar para imprimir a lista e a manipulação das informações utilizando os ponteiros da cabeça e cauda para adicionar elementos no início e fim da lista. Os demais métodos estão apenas com suas respectivas sugestões de assinatura para facilitar o processo de desenvolvimento.
     
 ### Imprimir Lista
 
