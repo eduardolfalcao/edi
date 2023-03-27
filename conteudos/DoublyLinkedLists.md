@@ -35,6 +35,7 @@ struct Node {
 	value int;   	// valor presente no nó
 	next  *Node; 	// próximo nó
 };
+```
 
 ## Operações em DoublyLinkedLists
 
