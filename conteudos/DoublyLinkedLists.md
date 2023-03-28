@@ -93,12 +93,13 @@ void inserirElementoNoFim(struct linkedlist* lista, int valor)
 
 Mais uma vez, temos dois casos principais:
 
-1. **A lista está vazia.** Nesse caso, basta apontar a cabeça (head) e a cauda (tail) da lista para o nó recém-criado.
-2. **A lista não está vazia.** Nesse caso, seguimos a mesma implementação da linkedList porém com um cuidado a mais devido ao ponteiro do elemento anterior do nó que era a cabeça da lista antes de adicionarmos. Ou seja, os passos se resumem a basicamente:
-    - Apontamos o ponteiro `next` do nó recém-criado para o endereço que a cabeça da lista aponta atualmente;
-    - Apontamos o ponteiro `prev` do nó recém-criado para null já que agora ele é a nova cabeça;
-    - Apontamos a cabeça da lista para o nó recém-criado;
-    - Apontamos o ponteiro `prev` do nó que estava na cabeça da lista para o novo nó.
+1. **A lista está vazia.** Nesse caso, basta criar um novo nó e fazer com que a cabeça (head) da lista aponte para ele.
+2. **A lista não está vazia.** Nesse caso, seguimos uma implementação semelhante a que vimos para a LinkedList porém, é necessário levar em consideração o ajuste de mais um ponteiro. Ou seja:
+    - Criamos um novo nó;
+    - Guardamos o nó atual, que está na cabeça (head) da lista, em uma variavel auxiliar `aux`;
+    - Apontamos o `next` do novo nó para `aux`;
+    - Apontamos a cabeça da lista (head) para o novo nó;
+    - Apontamos o `prev` do `aux` para o novo nó.
 
 Sempre iremos incrementar a variável tamanho (length), independente do caso.
 
