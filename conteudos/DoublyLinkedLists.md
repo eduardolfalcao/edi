@@ -96,7 +96,7 @@ Mais uma vez, temos dois casos principais:
 1. **A lista está vazia.** Nesse caso, basta criar um novo nó e fazer com que a cabeça (head) da lista aponte para ele.
 2. **A lista não está vazia.** Nesse caso, seguimos uma implementação semelhante a que vimos para a LinkedList porém, é necessário levar em consideração o ajuste de mais um ponteiro. Ou seja:
     - Criamos um novo nó;
-    - Guardamos o nó atual, que está na cabeça (head) da lista, em uma variavel auxiliar `aux`;
+    - Guardamos o nó da cabeça (head) em uma variavel auxiliar `aux`;
     - Apontamos o `next` do novo nó para `aux`;
     - Apontamos a cabeça da lista (head) para o novo nó;
     - Apontamos o `prev` do `aux` para o novo nó.
