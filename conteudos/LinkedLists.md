@@ -21,7 +21,7 @@ Quando falamos de ArrayLists, sabemos que as listas são implementadas com array
 
 Segue ilustração de uma LinkedList contendo valores numéricos pares.
 
-![alt text](imgs/listas/linkedlist/linkedlist-apresentacao-1.png)
+![alt text](imgs/listas/linkedlist/linkedlist-apresentacao.png)
 
 Uma outra forma de ilustrar, que considero até mais fidedigno, é representando os valores dispostos de maneira lineares, como de fato acontece na memória RAM.
 
