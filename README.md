@@ -19,23 +19,27 @@ Este repositório conterá as notas de aula para a disciplina Algoritmos e Estru
 3. [Pilhas](conteudos/Pilhas.md)
 
 4. [Filas](conteudos/Filas.md)
+   
+5. [Algoritmos de Busca](conteudos/Busca.md)
 
 ### Unidade II
 
-1. [Algoritmos de Busca](conteudos/Busca.md)
+1. [Algoritmos de Ordenação](conteudos/Ordenacao.md)
 
-2. [Algoritmos de Ordenação](conteudos/Ordenacao.md)
+    1.1. [SelectionSort](conteudos/ordenacao/SelectionSort.md)
 
-    2.1. [SelectionSort](conteudos/ordenacao/SelectionSort.md)
+    1.2. [BubbleSort](conteudos/ordenacao/BubbleSort.md)
 
-    2.2. [BubbleSort](conteudos/ordenacao/BubbleSort.md)
+    1.3. [InsertionSort](conteudos/ordenacao/InsertionSort.md)
 
-    2.3. [InsertionSort](conteudos/ordenacao/InsertionSort.md)
+    1.4. [MergeSort](conteudos/ordenacao/MergeSort.md)
 
-    2.4. [MergeSort](conteudos/ordenacao/MergeSort.md)
+    1.5. [QuickSort](conteudos/ordenacao/QuickSort.md)
 
-    2.5. [QuickSort](conteudos/ordenacao/QuickSort.md)
-
+    1.6. CountingSort
+   
+2. [Árvores (de Busca Binária)](conteudos/Arvores.md)
+   
 ### Unidade III
 
-1. [Árvores](conteudos/Arvores.md)
+1. [Árvores AVL](conteudos/ArvoresAVL.md)
