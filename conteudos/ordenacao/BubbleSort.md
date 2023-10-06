@@ -147,7 +147,7 @@ void bubbleSort(int* v, int n){
 No pior caso, o BubbleSort é proporcional ao tamanho do vetor ao quadrado, ou seja, O(n²).
 No melhor caso, o BubbleSort é Ômega(n).
 Isso acontece pois na primeira execução do for interno, iterando n-1 vezes, nenhuma troca aconteceria.
-Dessa forma, a condicional que verifica a ocorrência de trocas perceberia que o vetor já estaria ordenado, e encerraria a ordenação sem precisar executar o for interno outras veses.
+Dessa forma, a condicional que verifica a ocorrência de trocas perceberia que o vetor já estaria ordenado, e encerraria a ordenação sem precisar executar o for interno outras vezes.
 Note, portanto, que o for externo só executaria a primeira iteração (varredura=0), executando uma única varredura no vetor.
 
 Comparando com o SelectionSort podemos dizer que o BubbleSort é ligeiramente melhor pois ele consegue detectar se um vetor já está ordenado, o que lhe permite ser mais eficiente para esses cenários.
