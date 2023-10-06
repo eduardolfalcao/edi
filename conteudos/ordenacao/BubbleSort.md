@@ -1,5 +1,13 @@
 # BubbleSort
 
+## Estratégia do algoritmo de acordo com seu nome
+
+ - fazer os maiores valores do vetor flutuarem para o final do vetor;
+ - assim como bolhas de ar embaixo d'água flutuam mais rapidamente para a superfície de acordo com seu tamanho, os maiores valores do vetor devem "flutuar" mais rapidamente para o fim do vetor;
+ - isso é tudo que precisamos lembrar para começar a estudar o bubblesort.
+
+## Ilustração do funcionamento do algoritmo
+
 Considere o seguinte array: **int v[7] = {2, 8, 6, 10, 4, 5, 3}**.
 
 Nosso objetivo é reorganizar o array **v** em ordem crescente.
@@ -41,6 +49,8 @@ varredura | tempo | array |
 ||
 6 | t1 | **2, 3**, **4, 5, 6, 8, 10**
 6 | t2 | **2, 3, 4, 5, 6, 8, 10**
+
+## Código
 
 Uma primeira implementação para BubbleSort seria:
 
@@ -110,4 +120,38 @@ void bubbleSort(int* v, int n){
 }
 ```
 
-In-place, estável, O(n²) no pior caso, O(n) no melhor caso.
+## Análise Assintótica
+
+```c
+void bubbleSort(int* v, int n){    
+    for(int varredura = 0; varredura < n-1; varredura++){
+        bool trocou = false;                            // essa inicialização/atribuição executa n-1 vezes
+        for(int i = 0; i < n-varredura-1; i++){
+            <código>                                    // o trecho de código dentro do for executa n²/2 - n/2 vezes
+
+            // quando varredura=0; i assume os valores {0, 1, 2, ..., n-0-2}; em suma, executa n-1 vezes
+                //lembrando que i chega a assumir o valor n-1, porém esse valor não satisfaz a condicional de execução do laço, e portanto o <código> de dentro desse for não executará quando i=n-1
+            // quando varredura=1; i assume os valores {0, 1, 2, ..., n-1-2}; em suma, executa n-2 vezes
+            // quando varredura=2; i assume os valores {0, 1, 2, ..., n-2-2}; em suma, executa n-3 vezes
+            // ...
+            // quando varredura=n-2; i assume os valores {0, 1, 2, ..., n-(n-2)-2}; em suma, executa 1 vez
+            // Fórmula geral da soma dos termos de uma PA: Sn = n(a1+an)/2
+            // Sn-1 = (n-1) * (1+n-1)/2 = n * (n-1) / 2
+        }
+        if(trocou==false)                              // essa condição é verificada n-1 vezes
+            return;
+    }
+}
+```
+
+No pior caso, o BubbleSort é proporcional ao tamanho do vetor ao quadrado, ou seja, O(n²).
+No melhor caso, o BubbleSort é Ômega(n).
+Isso acontece pois na primeira execução do for interno, iterando n-1 vezes, nenhuma troca aconteceria.
+Dessa forma, a condicional que verifica a ocorrência de trocas perceberia que o vetor já estaria ordenado, e encerraria a ordenação sem precisar executar o for interno outras veses.
+Note, portanto, que o for externo só executaria a primeira iteração (varredura=0), executando uma única varredura no vetor.
+
+Comparando com o SelectionSort podemos dizer que o BubbleSort é ligeiramente melhor pois ele consegue detectar se um vetor já está ordenado, o que lhe permite ser mais eficiente para esses cenários.
+
+## Resumo
+
+In-place, estável, O(n²), Ômega(n).
