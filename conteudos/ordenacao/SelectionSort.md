@@ -130,7 +130,7 @@ void selectionSortIP(int* v, int tamanho) {
             //quando i=1, j assume os valores {2, ..., n-1}; em suma, executa n-2 vezes
             //quando i=2, j assume os valores {3, ..., n-1};  em suma, executa n-3 vezes
             //...
-            //quando i=n-1, j assume os valores {n-1};  em suma, executa 1 vez
+            //quando i=n-2, j assume os valores {n-1};  em suma, executa 1 vez
             //1 + 2 + 3 + ... + (n-3) + (n-2) + (n-1)
             // Fórmula geral da soma dos termos de uma PA: Sn = n(a1+an)/2
             // Sn-1 = (n-1) * (1+n-1)/2 = n * (n-1) / 2
