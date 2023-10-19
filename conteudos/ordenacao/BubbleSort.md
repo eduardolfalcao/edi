@@ -134,7 +134,7 @@ void bubbleSort(int* v, int n){
             // quando varredura=1; i assume os valores {0, 1, 2, ..., n-1-2}; em suma, executa n-2 vezes
             // quando varredura=2; i assume os valores {0, 1, 2, ..., n-2-2}; em suma, executa n-3 vezes
             // ...
-            // quando varredura=n-2; i assume os valores {0, 1, 2, ..., n-(n-2)-2}; em suma, executa 1 vez
+            // quando varredura=n-2; i assume os valores {n-(n-2)-2}, ou seja, {0}; em suma, executa 1 vez
             // Fórmula geral da soma dos termos de uma PA: Sn = n(a1+an)/2
             // Sn-1 = (n-1) * (1+n-1)/2 = n * (n-1) / 2
         }
@@ -150,7 +150,7 @@ Isso acontece pois na primeira execução do for interno, iterando n-1 vezes, ne
 Dessa forma, a condicional que verifica a ocorrência de trocas perceberia que o vetor já estaria ordenado, e encerraria a ordenação sem precisar executar o for interno outras vezes.
 Note, portanto, que o for externo só executaria a primeira iteração (varredura=0), executando uma única varredura no vetor.
 
-Comparando com o SelectionSort podemos dizer que o BubbleSort é ligeiramente melhor pois ele consegue detectar se um vetor já está ordenado, o que lhe permite ser mais eficiente para esses cenários.
+Comparando situações de melhor caso (vetor já está ordenado), o BubbleSort é ligeiramente melhor do que o SelectionSort pois seu melhor caso é Ômega(n)  e o melhor caso do SelectionSort é Ômega(n²).
 
 ## Resumo
 
