@@ -56,6 +56,7 @@ Uma colisão acontece quando duas chaves de valores diferentes são mapeadas par
 As estratégias mais populares para solução de colisões são **encadeamento e endereçamento aberto**.
 
 **1) Encadeamento (Chaining):** Nesse método, cada posição da tabela hash contém uma lista (ou outra estrutura de dados, como uma árvore) que armazena todos os elementos que mapeiam para essa posição. Quando ocorre uma colisão, o novo elemento é simplesmente adicionado à lista correspondente. É uma técnica eficaz para lidar com colisões e permite que múltiplos elementos compartilhem a mesma posição na tabela.
+![alt text](imgs/tabelas-hash/chaining.png)
 
 **2) Endereçamento Aberto (Open Addressing):** Ao contrário do encadeamento, o endereçamento aberto armazena todos os elementos diretamente na tabela hash, sem usar estruturas secundárias. Quando ocorre uma colisão, a tabela é explorada sequencialmente (ou usando uma sequência de sondagem) para encontrar a próxima posição vazia onde o elemento pode ser inserido. Existem várias técnicas de sondagem, como **sondagem linear, sondagem quadrática e sondagem dupla**.
 
@@ -65,14 +66,16 @@ As estratégias mais populares para solução de colisões são **encadeamento e
 > Suponha que estamos usando quadratic probing em uma tabela hash com 10 posições (0 a 9) e ocorre uma colisão na posição inicial 3 (posição_inicial = 3). A primeira tentativa (tentativa = 0) nos levaria a verificar a posição 3, que já está ocupada. Para encontrar a próxima posição, usamos a fórmula com as constantes C1 e C2.
 > Suponha que tenhamos definido C1 = 1 e C2 = 1. Agora, calculamos a próxima posição: posição = (3 + 1 \* 0 + 1 \* 0^2) % 10 = (3 + 0 + 0) % 10 = 3 % 10 = 3. A próxima posição a ser verificada é a posição 3 novamente, o que não resolve o problema. Portanto, aumentamos a tentativa (tentativa = 1) e recalculamos a posição: posição = (3 + 1 \* 1 + 1 \* 1^2) % 10 = (3 + 1 + 1) % 10 = 5 % 10 = 5
 > As constantes C1 e C2 podem ser ajustadas de acordo com as características da tabela hash e do problema específico que você está resolvendo. Elas afetam a distribuição de elementos na tabela e podem influenciar o desempenho. É importante escolher valores que garantam que todas as posições sejam eventualmente verificadas e que minimizem o agrupamento de elementos. Experimentar diferentes valores de C1 e C2 pode ser necessário para encontrar a melhor configuração para o seu caso.
+![alt text](imgs/tabelas-hash/linear-and-quadratic-probing.png)
 
+### Fator de Carga
 
+As tabelas de dispersão possuem uma propriedade conhecida como "fator de carga" (não deve ser confundido com o fator de balanceamento em Árvores AVL). 
+O fator de carga é calculado pela divisão da quantidade de elementos inseridos pelo tamanho do vetor.
 
+É importante observar que quanto maior o fator de carga, maior a probabilidade de ocorrência de colisões. 
+O aumento do fator de carga ocorre quando reduzimos o tamanho do vetor ou inserimos mais elementos nele. 
+Portanto, o fator de carga é uma propriedade que requer monitoramento constante para determinar se é necessário aumentar o tamanho do vetor.
 
-
-
-Tabelas de dispersão possuem uma propriedade chamada fator de carga (não confundir com fator de balanço em AVLs).
-O fator de carga é computado pela divisão entre a quantidade de elementos inseridos pelo tamanho do vetor.
-Note que quanto maior o fator de carga, maior a probabilidade de colisão.
-Aumentam o fator de carga: diminuir o tamanho do vetor, e inserir elementos no vetor.
-O problema de diminuir o tamanho do vetor é que aumentamos a possibilidade de colisão.
+No entanto, é importante notar que o aumento do tamanho do vetor é uma operação demorada, pois requer o remapeamento de todos os elementos. 
+Por esse motivo, é essencial minimizar a necessidade de redimensionamento do vetor, ajustando adequadamente o tamanho inicial da tabela e gerenciando o fator de carga de forma eficaz.
