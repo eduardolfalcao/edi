@@ -244,7 +244,7 @@ Lembra que Big-O é um sinônimo para "pior caso"?
 - Dizemos que **Talg1** é **O(n²)**.
 - Mas note que a curva da função **f(n)=5n²+7** está sempre acima de **g(n)=n²**.
 
-![alt text](conteudos/imgs/big-oh-expl1.png)
+![alt text](imgs/big-oh-expl1.png)
 
 Então seria estranho e errado afirmar que a curva **f(n)=5n²+7** é limitada superiormente por **g(n)=n²**.
 
@@ -253,7 +253,7 @@ Além disso, é provável que **c.g(n)** só limite **f(n)** superiormente a par
 
 Observe o gráfico abaixo:
 
-![alt text](conteudos/imgs/big-oh.png)
+![alt text](imgs/big-oh.png)
 
 É a partir dessa narrativa, e principalmente dessa imagem, formalizamos a notação Big-Oh.
 
@@ -288,7 +288,7 @@ Em termos de comunicação, **f(n) <= c.g(n²), para c=8 e para todo n>=1**, diz
 - Em **Ômega**, buscamos encontrar **g(n)**, ou seja, uma função que limite inferiormente **f(n)**.
 - Para isto, **g(n)** pode ser multiplicada por alguma constante positiva **c**, e precisa ser um limite inferior para **f(n)** pelo menos a partir de um certo ponto da curva **n₀**.
 - A imagem a seguir ilustra essas duas funções:
-![alt text](conteudos/imgs/omega.png)
+![alt text](imgs/omega.png)
 
 É razoavelmente fácil construir a formalização de Ômega reutilizando a formalização de Big-O:
 - Textualmente: 
@@ -307,7 +307,7 @@ Então vamos seguir a formalização:
 - No entanto, por definição *c precisa ser positivo*, então consideremos **c>0**
 - Por outro lado, eu consigo afirmar com segurança que para c=5, a inequação ainda se mantém verdadeira sempre que n>=0
     - Logo, seguem alguns possíveis valores para c e n: **c ∈ (0,5] e n₀>0**; (como n₀ pode ser ponto flutuante, basta dizer que n₀>0 ou escolher um valor positivo qualquer, como por exemplo, n₀=1)
-    - ![alt text](conteudos/imgs/omega-exemplo.png)
+    - ![alt text](imgs/omega-exemplo.png)
 - Note que na medida em que aumentarmos o valor de c, não conseguiremos encontrar um valor para n₀ de tal modo que satisfaça **f(n) >= c.g(n), para todo n>=n₀**
     - Por exemplo: abra o desmos e teste c=6
 
@@ -328,7 +328,7 @@ A formalização de Theta nada mais é do que a combinação de Big-O e Ômega:
 
 A imagem a seguir ilustra essas duas funções:
 
-![alt text](conteudos/imgs/theta.jpg)
+![alt text](imgs/theta.jpg)
 
 - Agora vamos a um exemplo, utilizando a mesma função da seção anterior: **f(n)=5n²+2n+1**.
 - Como nós já provamos que f(n)=O(n²) e f(n)=Ω(n²), por consequência podemos afirmar que f(n)=Θ(n²).
