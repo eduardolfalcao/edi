@@ -8,19 +8,21 @@ Este repositório conterá as notas de aula para a disciplina Algoritmos e Estru
 
 1. [Introdução a Estruturas de Dados](conteudos/Introducao.md)
 
-2. [Listas](conteudos/Listas.md)
+2. [Introdução à Análise de Complexidade](conteudos/AnaliseAssintotica.md)
+
+3. [Listas](conteudos/Listas.md)
     
-    2.1. [ArrayLists](conteudos/ArrayLists.md)
+    3.1. [ArrayLists](conteudos/ArrayLists.md)
 
-    2.2. [LinkedLists](conteudos/LinkedLists.md)
+    3.2. [LinkedLists](conteudos/LinkedLists.md)
 
-    2.3. [DoublyLinkedLists](conteudos/DoublyLinkedLists.md)
+    3.3. [DoublyLinkedLists](conteudos/DoublyLinkedLists.md)
 
-3. [Pilhas](conteudos/Pilhas.md)
+4. [Pilhas](conteudos/Pilhas.md)
 
-4. [Filas](conteudos/Filas.md)
+5. [Filas](conteudos/Filas.md)
    
-5. [Algoritmos de Busca](conteudos/Busca.md)
+6. [Algoritmos de Busca](conteudos/Busca.md)
 
 ### Unidade II
 
