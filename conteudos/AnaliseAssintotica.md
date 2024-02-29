@@ -288,6 +288,7 @@ Em termos de comunicação, **f(n) <= c.g(n²), para c=8 e para todo n>=1**, diz
 - Em **Ômega**, buscamos encontrar **g(n)**, ou seja, uma função que limite inferiormente **f(n)**.
 - Para isto, **g(n)** pode ser multiplicada por alguma constante positiva **c**, e precisa ser um limite inferior para **f(n)** pelo menos a partir de um certo ponto da curva **n₀**.
 - A imagem a seguir ilustra essas duas funções:
+  
 ![alt text](imgs/omega.png)
 
 É razoavelmente fácil construir a formalização de Ômega reutilizando a formalização de Big-O:
@@ -307,7 +308,9 @@ Então vamos seguir a formalização:
 - No entanto, por definição *c precisa ser positivo*, então consideremos **c>0**
 - Por outro lado, eu consigo afirmar com segurança que para c=5, a inequação ainda se mantém verdadeira sempre que n>=0
     - Logo, seguem alguns possíveis valores para c e n: **c ∈ (0,5] e n₀>0**; (como n₀ pode ser ponto flutuante, basta dizer que n₀>0 ou escolher um valor positivo qualquer, como por exemplo, n₀=1)
-    - ![alt text](imgs/omega-exemplo.png)
+  
+![alt text](imgs/omega-exemplo.png)
+
 - Note que na medida em que aumentarmos o valor de c, não conseguiremos encontrar um valor para n₀ de tal modo que satisfaça **f(n) >= c.g(n), para todo n>=n₀**
     - Por exemplo: abra o desmos e teste c=6
 
