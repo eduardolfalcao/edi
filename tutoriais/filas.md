@@ -39,7 +39,7 @@ Para começar, você irá criar o projeto em que implementará a fila.
 
 4. Clique novamente no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **Open Workspace**.
 
-5. Escolha a pasta `cloudshell_open/ed1` e clique em **Open**.
+5. Escolha a pasta `cloudshell_open/aed1` e clique em **Open**.
 
 6. Abra um terminal clicando em <walkthrough-editor-spotlight spotlightId="menu-terminal-new-terminal">New Terminal</walkthrough-editor-spotlight>.
 
@@ -81,14 +81,16 @@ type IQueue interface {
 }
 ```
 
+6. Salve o arquivo.
+
 ## Criar os testes da fila
 
 Agora você adicionará testes para validar o comportamento das implementações da fila.
-Esses testes são genéricos: eles foram pensados para o TAD Fila-FIFO e independe da implementação instanciada
+Esses testes são genéricos: eles foram pensados para o TAD Fila-FIFO e independem da implementação.
 
 1. Clique no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **New File**.
 
-2. Nomeie o arquivo como `queue_test.go` e clique em **OK**.
+2. Crie o arquivo dentro da pasta `queuefifo` e nomeie-o como `queue_test.go` e clique em **OK**.
 
 3. No arquivo `queue_test.go`, adicione o seguinte código:
 
@@ -112,7 +114,7 @@ func createQueues(size int) {
 }
 
 func deleteQueues() {
-	queues[ = nil
+	queues = nil
 }
 
 func setupTest() func() {
@@ -291,7 +293,7 @@ func (queue *LinkedListQueue) IsEmpty() bool {
 }
 
 func (queue *LinkedListQueue) Size() int {
-	return 0
+	return queue.size
 }
 ```
 
@@ -309,7 +311,7 @@ Nesta etapa, você implementará apenas a operação de inserção (`Enqueue`) d
 
 ```go
 func (queue *LinkedListQueue) Enqueue(val int) {
-	newNode := Node{val: val, next: nil}
+	newNode := &Node{val: val, next: nil}
 
 	if queue.size == 0 {
 		queue.front = &newNode
@@ -327,8 +329,21 @@ func (queue *LinkedListQueue) Enqueue(val int) {
 3. Agora você irá executar os testes para verificar o comportamento atual da fila.
 
 ```bash
-cd ../    #vá para queue, onde está o arquivo de teste
-go test   #execute os testes
+go test ./...  #execute os testes
 ```
+4. Neste momento:
+   
+ - Alguns testes ainda irão falhar (isso é esperado)
+ - O objetivo é validar incrementalmente a implementação
 
-4. Implemente as demais funções e reexecute a suíte de testes.
+5. Implemente os próximos métodos na seguinte ordem:
+
+- `Dequeue`
+- `Front`
+- `IsEmpty`
+
+Após cada implementação, execute novamente:
+
+```bash
+go test ./...
+```
