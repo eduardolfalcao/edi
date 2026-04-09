@@ -27,23 +27,19 @@ Ao final, você será capaz de:
 
 Vamos começar criando o projeto e a estrutura inicial do código.
 
-## Criar o projeto
+## 📦 Criar o projeto
 
-Para começar, você irá criar o projeto em que implementará a fila.
+1. Crie uma pasta chamada `aed1`
 
-1. Certifique-se de que a pasta **cloudshell_open** está selecionada.
-  
-2. Clique no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **New Folder**.
-
-3. No campo de nome, digite `aed1` e clique em **OK**.
-
-4. Clique novamente no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **Open Workspace**.
-
-5. Escolha a pasta `cloudshell_open/aed1` e clique em **Open**.
-
-6. Abra um terminal clicando em <walkthrough-editor-spotlight spotlightId="menu-terminal-new-terminal">New Terminal</walkthrough-editor-spotlight>.
-
-7. No terminal, inicialize o módulo Go:
+```bash
+# vá para o diretório raiz
+cd
+mkdir aed1
+cd aed1
+```
+   
+2. Abra a pasta como workspace
+3. No terminal:
 
 ```bash
 go mod init aed1
@@ -55,19 +51,19 @@ O terminal deve exibir uma saída semelhante a:
 go: creating new go.mod: module aed1
 ```
 
-## Criar a interface da fila
+## 🧩 Criar a interface da fila
 
 Nesta etapa, você definirá a interface que as filas implementarão.
 
-1. Clique no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **New Folder**.
+Crie a pasta `queuefifo` e o arquivo `iqueue.go`:
 
-2. Nomeie a pasta como `queuefifo` e clique em **OK**.
-
-3. Clique novamente no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **New File**.
-
-4. Nomeie o arquivo como `iqueue.go` e clique em **OK**.
-
-5. No arquivo `iqueue.go`, adicione o seguinte código:
+```bash
+cd aed1
+mkdir deque
+cd deque
+touch iqueue.go
+```
+No arquivo `iqueue.go`, adicione o seguinte código:
 
 ```go
 package queuefifo
@@ -88,11 +84,11 @@ type IQueue interface {
 Agora você adicionará testes para validar o comportamento das implementações da fila.
 Esses testes são genéricos: eles foram pensados para o TAD Fila-FIFO e independem da implementação.
 
-1. Clique no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **New File**.
-
-2. Crie o arquivo dentro da pasta `queuefifo` e nomeie-o como `queue_test.go` e clique em **OK**.
-
-3. No arquivo `queue_test.go`, adicione o seguinte código:
+```bash
+cd aed1/deque
+touch queue_test.go
+```
+No arquivo `queue_test.go`, adicione o seguinte código:
 
 ```go
 package queuefifo
@@ -284,7 +280,7 @@ func TestSizeEmptyQueue(t *testing.T) {
 }
 ```
 
-4. Salve o arquivo.
+Lembre-se de salvar o arquivo.
 
 - Momentaneamente veremos um erro porque o arquivo `linkedlist_queue.go` ainda não foi criado.
 
@@ -296,17 +292,14 @@ Nesta etapa, você criará a estrutura e os métodos da fila, deixando a impleme
 
 ---
 
-### Criar o arquivo
+1. Crie o arquivo.
 
-1. Clique no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **New File**.
+```bash
+cd aed1/deque
+touch linkedlist_queue.go
+```
 
-2. Nomeie o arquivo como `linkedlist_queue.go` e clique em **OK**.
-
----
-
-### Definir estruturas e assinaturas
-
-3. No arquivo `linkedlist_queue.go`, adicione o seguinte código:
+2. No arquivo `linkedlist_queue.go`, adicione o seguinte código:
 
 ```go
 package queuefifo
@@ -344,7 +337,7 @@ func (queue *LinkedListQueue) Size() int {
 }
 ```
 
-4. Salve o arquivo.
+3. Salve o arquivo.
 
 ## Implementar o método Enqueue
 
@@ -376,6 +369,7 @@ func (queue *LinkedListQueue) Enqueue(val int) {
 3. Agora você irá executar os testes para verificar o comportamento atual da fila.
 
 ```bash
+cd aed1/queue
 go test ./...  #execute os testes
 ```
 4. Neste momento:
@@ -403,17 +397,14 @@ Nesta etapa, você criará a estrutura e os métodos da fila, deixando a impleme
 
 ---
 
-### Criar o arquivo
+1. Crie o arquivo.
 
-1. Clique no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **New File**.
+```bash
+cd aed1/deque
+touch array_queue.go
+```
 
-2. Nomeie o arquivo como `array_queue.go` e clique em **OK**.
-
----
-
-### Definir estruturas e assinaturas
-
-3. No arquivo `array_queue.go`, adicione o seguinte código:
+2. No arquivo `array_queue.go`, adicione o seguinte código:
 
 ```go
 package queuefifo
@@ -450,9 +441,9 @@ func (queue *ArrayQueue) Size() int {
 }
 ```
 
-4. Salve o arquivo.
+3. Salve o arquivo.
 
-5. Implemente os próximos métodos na seguinte ordem:
+4. Implemente os próximos métodos na seguinte ordem:
 
 - `Front`
 - `IsEmpty`
