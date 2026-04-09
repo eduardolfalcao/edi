@@ -241,6 +241,8 @@ func TestSizeEmptyQueue(t *testing.T) {
 
 4. Salve o arquivo.
 
+- Momentaneamente veremos um erro porque o arquivo `linkedlist_queue.go` ainda não foi criado.
+
 ## Implementar a fila com lista encadeada
 
 Agora você iniciará a implementação de uma fila FIFO utilizando **lista encadeada**.
