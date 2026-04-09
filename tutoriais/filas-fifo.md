@@ -315,7 +315,7 @@ import "errors"
 
 type LinkedListQueue struct {
 	front *Node
-	rear  *Node
+	back  *Node
 	size  int
 }
 
@@ -363,10 +363,10 @@ func (queue *LinkedListQueue) Enqueue(val int) {
 	if queue.size == 0 {
 		queue.front = newNode
 	} else {
-		queue.rear.next = newNode
+		queue.back.next = newNode
 	}
 
-	queue.rear = newNode
+	queue.back = newNode
 	queue.size++
 }
 ```
@@ -421,9 +421,10 @@ package queuefifo
 import "errors"
 
 type ArrayQueue struct {
-  v []int;
-  front int;
-  rear int;
+  v []int
+  front int
+  back int
+  size int
 }
 
 func (queue *ArrayQueue) Init(size int) {
