@@ -35,7 +35,7 @@ Para começar, você irá criar o projeto em que implementará a fila.
   
 2. Clique no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **New Folder**.
 
-3. No campo de nome, digite `ed1` e clique em **OK**.
+3. No campo de nome, digite `aed1` e clique em **OK**.
 
 4. Clique novamente no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **Open Workspace**.
 
@@ -46,13 +46,13 @@ Para começar, você irá criar o projeto em que implementará a fila.
 7. No terminal, inicialize o módulo Go:
 
 ```bash
-go mod init ed1
+go mod init aed1
 ```
 
 O terminal deve exibir uma saída semelhante a:
 
 ```bash
-go: creating new go.mod: module ed1
+go: creating new go.mod: module aed1
 ```
 
 ## Criar a interface da fila
