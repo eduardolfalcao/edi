@@ -316,12 +316,12 @@ func (queue *LinkedListQueue) Enqueue(val int) {
 	newNode := &Node{val: val, next: nil}
 
 	if queue.size == 0 {
-		queue.front = &newNode
+		queue.front = newNode
 	} else {
-		queue.rear.next = &newNode
+		queue.rear.next = newNode
 	}
 
-	queue.rear = &newNode
+	queue.rear = newNode
 	queue.size++
 }
 ```
