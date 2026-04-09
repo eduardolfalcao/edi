@@ -172,6 +172,51 @@ func TestDequeueEmptyQueue(t *testing.T) {
 	}
 }
 
+func TestCircularEnqueueAfterDequeue(t *testing.T) {
+	defer setupTest()()
+
+	for _, queue := range queues {
+
+		// enche parcialmente
+		for i := 0; i < size; i++ {
+			queue.Enqueue(i)
+		}
+
+		// remove alguns
+		for i := 0; i < size-2; i++ {
+			queue.Dequeue()
+		}
+
+		// agora deve sobrar: [size-2, size-1]
+
+		// adiciona mais elementos (deve usar espaço circular)
+		for i := size; i < size+6; i++ {
+			queue.Enqueue(i)
+		}
+
+		// agora sequência esperada:
+		// size-2, size-1, size, size+1, ..., size+5
+
+		for i := size - 2; i < size+6; i++ {
+			val, err := queue.Front()
+
+			if err != nil {
+				t.Errorf("%T unexpected error: %v", queue, err)
+			}
+
+			if val != i {
+				t.Errorf("%T got %d, expected %d", queue, val, i)
+			}
+
+			queue.Dequeue()
+		}
+
+		if queue.Size() != 0 {
+			t.Errorf("%T expected empty queue, got size %d", queue, queue.Size())
+		}
+	}
+}
+
 func TestFront(t *testing.T) {
 	defer setupTest()()
 	for _, queue := range queues {
