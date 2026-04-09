@@ -340,12 +340,82 @@ go test ./...  #execute os testes
 
 5. Implemente os próximos métodos na seguinte ordem:
 
-- `Dequeue`
 - `Front`
 - `IsEmpty`
+- `Dequeue`
 
 Após cada implementação, execute novamente:
 
 ```bash
 go test ./...
 ```
+
+## Implementar a fila com array circular
+
+Agora você iniciará a implementação de uma fila FIFO utilizando **array circular**.
+
+Nesta etapa, você criará a estrutura e os métodos da fila, deixando a implementação para os próximos passos.
+
+---
+
+### Criar o arquivo
+
+1. Clique no <walkthrough-editor-spotlight spotlightId="menu-file">File Menu</walkthrough-editor-spotlight> e selecione **New File**.
+
+2. Nomeie o arquivo como `array_queue.go` e clique em **OK**.
+
+---
+
+### Definir estruturas e assinaturas
+
+3. No arquivo `array_queue.go`, adicione o seguinte código:
+
+```go
+package queuefifo
+
+import "errors"
+
+type ArrayQueue struct {
+  v []int;
+  front int;
+  rear int;
+}
+
+func (queue *ArrayQueue) Init(size int) {
+}
+
+func (queue *ArrayQueue) Enqueue(val int) {
+}
+
+func (queue *ArrayQueue) Dequeue() (int, error) {
+	return -1, errors.New("error msg")
+}
+
+func (queue *ArrayQueue) Front() (int, error) {
+	return -1, errors.New("error msg")
+}
+
+func (queue *ArrayQueue) IsEmpty() bool {
+	return false
+}
+
+func (queue *ArrayQueue) Size() int {
+	return queue.size
+}
+```
+
+4. Salve o arquivo.
+
+5. Implemente os próximos métodos na seguinte ordem:
+
+- `Front`
+- `IsEmpty`
+- `Enqueue`
+- `Dequeue`
+
+Após cada implementação, execute novamente:
+
+```bash
+go test ./...
+```
+
