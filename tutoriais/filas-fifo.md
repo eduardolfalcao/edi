@@ -445,8 +445,8 @@ func (queue *ArrayQueue) Size() int {
 
 4. Implemente os próximos métodos na seguinte ordem:
 
-- `Front`
 - `IsEmpty`
+- `Front`
 - `Enqueue`
 - `Dequeue`
 
